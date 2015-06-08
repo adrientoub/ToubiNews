@@ -8,7 +8,7 @@
 
 #import "GameTVC.h"
 #import "GameDetailVC.h"
-#import "Game.h"
+#import "News.h"
 
 @interface GameTVC ()
 
@@ -92,7 +92,7 @@
 {
     for (NSDictionary* gameDico in jsonArray)
     {
-        Game* gameTmp = [[Game alloc] init];
+        News* gameTmp = [[News alloc] init];
         gameTmp.iId = [[gameDico objectForKey:@"id"] intValue];
         gameTmp.uid = [gameDico objectForKey:@"uid"];
         gameTmp.subject = [gameDico objectForKey:@"subject"];

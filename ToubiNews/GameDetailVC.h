@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+#import "News.h"
 
 @interface GameDetailVC : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *subject;
-@property (nonatomic, strong) Game* news;
+@property (nonatomic, strong) News* news;
 
 @end

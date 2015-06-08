@@ -1,6 +1,6 @@
 //
-//  Game.h
-//  GameCritic
+//  News.h
+//  ToubiNews
 //
 //  Created by Guest User on 08/06/15.
 //  Copyright (c) 2015 3IE. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Game : NSObject
+@interface News : NSObject
 
 @property (nonatomic, assign) int iId;
 @property (nonatomic, strong) NSString* uid;
