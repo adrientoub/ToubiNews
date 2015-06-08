@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     self.newsArray = [[NSMutableArray alloc] init];
-    self.newsgroup = @"epita.assistants";
+    //self.newsgroup = @"epita.assistants";
 
     [self getNews];
 
@@ -92,16 +92,16 @@
 
 - (void)parseNews:(NSArray*)jsonArray
 {
-    for (NSDictionary* gameDico in jsonArray)
+    for (NSDictionary* newsDico in jsonArray)
     {
-        News* gameTmp = [[News alloc] init];
-        gameTmp.iId = [[gameDico objectForKey:@"id"] intValue];
-        gameTmp.uid = [gameDico objectForKey:@"uid"];
-        gameTmp.subject = [gameDico objectForKey:@"subject"];
-        gameTmp.author = [gameDico objectForKey:@"author"];
+        News* newsTmp = [[News alloc] init];
+        newsTmp.iId = [[newsDico objectForKey:@"id"] intValue];
+        newsTmp.uid = [newsDico objectForKey:@"uid"];
+        newsTmp.subject = [newsDico objectForKey:@"subject"];
+        newsTmp.author = [newsDico objectForKey:@"author"];
         
         //end of parsing
-        [self.newsArray addObject:gameTmp];
+        [self.newsArray addObject:newsTmp];
     }
 }
 
