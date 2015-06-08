@@ -1,9 +1,9 @@
 //
 //  GameDetailVC.m
-//  GameCritic
+//  ToubiNews
 //
-//  Created by Guest User on 08/06/15.
-//  Copyright (c) 2015 3IE. All rights reserved.
+//  Created by Adrien Toubiana on 08/06/15.
+//  Copyright (c) 2015 ToubInc. All rights reserved.
 //
 
 #import "NewsDetailVC.h"
