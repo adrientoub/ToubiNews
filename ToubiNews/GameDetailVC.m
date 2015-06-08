@@ -17,13 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.name setText:[self.game name]];
-    [self.idObj setText:[NSString stringWithFormat:@"%d", self.game.iId]];
-    [self.score setText:[NSString stringWithFormat:@"%d", self.game.iScore]];
-    
-    NSURL *url = [NSURL URLWithString: [self.game bigImageURL]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    [self.image setImage:[UIImage imageWithData:data]];
+    [self.subject setText:[self.news subject]];
 }
 
 - (void)didReceiveMemoryWarning {

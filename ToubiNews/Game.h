@@ -11,11 +11,8 @@
 @interface Game : NSObject
 
 @property (nonatomic, assign) int iId;
-@property (nonatomic, strong) NSString* name;
-@property (nonatomic, strong) NSString* smallImageURL;
-@property (nonatomic, strong) NSString* bigImageURL;
-@property (nonatomic, assign) int iScore;
-
-+(id) fakeNews;
+@property (nonatomic, strong) NSString* uid;
+@property (nonatomic, strong) NSString* author;
+@property (nonatomic, strong) NSString* subject;
 
 @end

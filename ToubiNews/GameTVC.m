@@ -16,14 +16,6 @@
 
 @implementation GameTVC
 
--(void)fakeInit
-{
-    for (int i = 0; i < 10; i++)
-    {
-        [self.gamesArray addObject:[Game fakeGame]];
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -102,10 +94,9 @@
     {
         Game* gameTmp = [[Game alloc] init];
         gameTmp.iId = [[gameDico objectForKey:@"id"] intValue];
-        gameTmp.name = [gameDico objectForKey:@"name"];
-        gameTmp.bigImageURL = [gameDico objectForKey:@"bigImageURL"];
-        gameTmp.smallImageURL = [gameDico objectForKey:@"smallImageURL"];
-        gameTmp.iScore = [[gameDico objectForKey:@"score"] intValue];
+        gameTmp.uid = [gameDico objectForKey:@"uid"];
+        gameTmp.subject = [gameDico objectForKey:@"subject"];
+        gameTmp.author = [gameDico objectForKey:@"author"];
         
         //end of parsing
         [_gamesArray addObject:gameTmp];
@@ -125,12 +116,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gameCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsName" forIndexPath:indexPath];
     
-    [cell.textLabel setText: [[self.gamesArray objectAtIndex:indexPath.row] name]];
-    NSURL *url = [NSURL URLWithString: [[self.gamesArray objectAtIndex:indexPath.row] smallImageURL]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    [cell.imageView setImage: [UIImage imageWithData:data]];
+    [cell.textLabel setText: [[self.gamesArray objectAtIndex:indexPath.row] subject]];
     // Configure the cell...
     
     return cell;
@@ -179,7 +167,7 @@
     // Pass the selected object to the new view
     GameDetailVC* detail = [segue destinationViewController];
     NSIndexPath* index = [self.tableView indexPathForCell:sender];
-    [detail setGame:[self.gamesArray objectAtIndex: index.row]];
+    [detail setNews:[self.gamesArray objectAtIndex: index.row]];
 }
 
 @end
