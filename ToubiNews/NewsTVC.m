@@ -20,11 +20,13 @@
     [super viewDidLoad];
     
     self.newsArray = [[NSMutableArray alloc] init];
+    self.newsgroup = @"epita.assistants";
 
     [self getNews];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -40,7 +42,7 @@
 
 - (void)getNews
 {
-    NSString* strURL = @"https://42portal.com/ng-notifier/api/news.epita.fr/epita.assistants";
+    NSString* strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/news.epita.fr/%@", self.newsgroup];
     //2
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:strURL]];
     //3

@@ -11,6 +11,7 @@
 @interface NewsTVC : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray* newsArray;
+@property (nonatomic, strong) NSString* newsgroup;
 
 - (void)getNews;
 - (void)parseNews:(NSArray*)jsonArray;
