@@ -117,13 +117,15 @@
     return [self.newsArray count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsName" forIndexPath:indexPath];
-    
-    [cell.textLabel setText: [[self.newsArray objectAtIndex:indexPath.row] subject]];
-    // Configure the cell...
-    
-    return cell;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsName" forIndexPath:indexPath];
+
+  News* news = [self.newsArray objectAtIndex:indexPath.row];
+  [cell.textLabel setText: [news subject]];
+  [cell.detailTextLabel setText:[news author]];
+
+  return cell;
 }
 
 /*

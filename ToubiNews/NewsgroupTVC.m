@@ -112,7 +112,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsgroupCell" forIndexPath:indexPath];
 
-  [cell.textLabel setText:[[self.newsgroups objectAtIndex:indexPath.row] group_name]];
+  Newsgroup* newsgroup = [self.newsgroups objectAtIndex:indexPath.row];
+  [cell.textLabel setText:[newsgroup group_name]];
+  [cell.detailTextLabel setText:[NSString stringWithFormat:@"%d news", [newsgroup topic_nb]]];
 
     // Configure the cell...
     
