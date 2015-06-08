@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "News.h"
 
-@interface GameDetailVC : UIViewController
+@interface NewsDetailVC : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *subject;
 @property (nonatomic, strong) News* news;

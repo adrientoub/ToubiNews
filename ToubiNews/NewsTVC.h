@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GameTVC : UITableViewController
+@interface NewsTVC : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray* gamesArray;
+@property (nonatomic, strong) NSMutableArray* newsArray;
 
-- (void)getGames;
-- (void)parseGames:(NSArray*)jsonArray;
+- (void)getNews;
+- (void)parseNews:(NSArray*)jsonArray;
 
 @end

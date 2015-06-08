@@ -6,22 +6,22 @@
 //  Copyright (c) 2015 3IE. All rights reserved.
 //
 
-#import "GameTVC.h"
-#import "GameDetailVC.h"
+#import "NewsTVC.h"
+#import "NewsDetailVC.h"
 #import "News.h"
 
-@interface GameTVC ()
+@interface NewsTVC ()
 
 @end
 
-@implementation GameTVC
+@implementation NewsTVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.gamesArray = [[NSMutableArray alloc] init];
+    self.newsArray = [[NSMutableArray alloc] init];
 
-    [self getGames];
+    [self getNews];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -38,7 +38,7 @@
 {
 }
 
-- (void)getGames
+- (void)getNews
 {
     NSString* strURL = @"https://42portal.com/ng-notifier/api/news.epita.fr/epita.assistants";
     //2
@@ -82,13 +82,13 @@
 - (void)fetchDatas:(NSArray*)jsonArray
 {
     NSLog(@"JSON: %@", jsonArray);
-    [self parseGames:jsonArray];
+    [self parseNews:jsonArray];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
 }
 
-- (void)parseGames:(NSArray*)jsonArray
+- (void)parseNews:(NSArray*)jsonArray
 {
     for (NSDictionary* gameDico in jsonArray)
     {
@@ -99,7 +99,7 @@
         gameTmp.author = [gameDico objectForKey:@"author"];
         
         //end of parsing
-        [_gamesArray addObject:gameTmp];
+        [self.newsArray addObject:gameTmp];
     }
 }
 
@@ -112,13 +112,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.gamesArray count];
+    return [self.newsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsName" forIndexPath:indexPath];
     
-    [cell.textLabel setText: [[self.gamesArray objectAtIndex:indexPath.row] subject]];
+    [cell.textLabel setText: [[self.newsArray objectAtIndex:indexPath.row] subject]];
     // Configure the cell...
     
     return cell;
@@ -165,9 +165,9 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view
-    GameDetailVC* detail = [segue destinationViewController];
+    NewsDetailVC* detail = [segue destinationViewController];
     NSIndexPath* index = [self.tableView indexPathForCell:sender];
-    [detail setNews:[self.gamesArray objectAtIndex: index.row]];
+    [detail setNews:[self.newsArray objectAtIndex: index.row]];
 }
 
 @end

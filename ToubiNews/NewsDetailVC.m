@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 3IE. All rights reserved.
 //
 
-#import "GameDetailVC.h"
+#import "NewsDetailVC.h"
 
-@interface GameDetailVC ()
+@interface NewsDetailVC ()
 
 @end
 
-@implementation GameDetailVC
+@implementation NewsDetailVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

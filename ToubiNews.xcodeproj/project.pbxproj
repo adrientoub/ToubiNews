@@ -15,8 +15,8 @@
 		ACB250F31B25A49000998A65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB250F11B25A49000998A65 /* LaunchScreen.xib */; };
 		ACB250FF1B25A49000998A65 /* ToubiNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB250FE1B25A49000998A65 /* ToubiNewsTests.m */; };
 		ACB2510E1B25A56100998A65 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB251091B25A56100998A65 /* News.m */; };
-		ACB2510F1B25A56100998A65 /* GameDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB2510B1B25A56100998A65 /* GameDetailVC.m */; };
-		ACB251101B25A56100998A65 /* GameTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB2510D1B25A56100998A65 /* GameTVC.m */; };
+		ACB2510F1B25A56100998A65 /* NewsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB2510B1B25A56100998A65 /* NewsDetailVC.m */; };
+		ACB251101B25A56100998A65 /* NewsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB2510D1B25A56100998A65 /* NewsTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +45,10 @@
 		ACB250FE1B25A49000998A65 /* ToubiNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToubiNewsTests.m; sourceTree = "<group>"; };
 		ACB251081B25A56100998A65 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		ACB251091B25A56100998A65 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
-		ACB2510A1B25A56100998A65 /* GameDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailVC.h; sourceTree = "<group>"; };
-		ACB2510B1B25A56100998A65 /* GameDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailVC.m; sourceTree = "<group>"; };
-		ACB2510C1B25A56100998A65 /* GameTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTVC.h; sourceTree = "<group>"; };
-		ACB2510D1B25A56100998A65 /* GameTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTVC.m; sourceTree = "<group>"; };
+		ACB2510A1B25A56100998A65 /* NewsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailVC.h; sourceTree = "<group>"; };
+		ACB2510B1B25A56100998A65 /* NewsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailVC.m; sourceTree = "<group>"; };
+		ACB2510C1B25A56100998A65 /* NewsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTVC.h; sourceTree = "<group>"; };
+		ACB2510D1B25A56100998A65 /* NewsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +93,10 @@
 				ACB250E61B25A49000998A65 /* AppDelegate.h */,
 				ACB251081B25A56100998A65 /* News.h */,
 				ACB251091B25A56100998A65 /* News.m */,
-				ACB2510A1B25A56100998A65 /* GameDetailVC.h */,
-				ACB2510B1B25A56100998A65 /* GameDetailVC.m */,
-				ACB2510C1B25A56100998A65 /* GameTVC.h */,
-				ACB2510D1B25A56100998A65 /* GameTVC.m */,
+				ACB2510A1B25A56100998A65 /* NewsDetailVC.h */,
+				ACB2510B1B25A56100998A65 /* NewsDetailVC.m */,
+				ACB2510C1B25A56100998A65 /* NewsTVC.h */,
+				ACB2510D1B25A56100998A65 /* NewsTVC.m */,
 				ACB250E71B25A49000998A65 /* AppDelegate.m */,
 				ACB250E91B25A49000998A65 /* ViewController.h */,
 				ACB250EA1B25A49000998A65 /* ViewController.m */,
@@ -238,8 +238,8 @@
 				ACB250E81B25A49000998A65 /* AppDelegate.m in Sources */,
 				ACB250E51B25A49000998A65 /* main.m in Sources */,
 				ACB2510E1B25A56100998A65 /* News.m in Sources */,
-				ACB2510F1B25A56100998A65 /* GameDetailVC.m in Sources */,
-				ACB251101B25A56100998A65 /* GameTVC.m in Sources */,
+				ACB2510F1B25A56100998A65 /* NewsDetailVC.m in Sources */,
+				ACB251101B25A56100998A65 /* NewsTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
