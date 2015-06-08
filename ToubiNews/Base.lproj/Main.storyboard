@@ -54,7 +54,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="364-by-PjG">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Q8-1v-6ql">
+                                <rect key="frame" x="16" y="144" width="568" height="436"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEO-eh-iIq">
+                                <rect key="frame" x="16" y="112" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="364-by-PjG">
                                 <rect key="frame" x="16" y="83" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -62,8 +75,22 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eEO-eh-iIq" firstAttribute="top" secondItem="364-by-PjG" secondAttribute="bottom" constant="8" id="Ayc-EU-Ueo"/>
+                            <constraint firstItem="eEO-eh-iIq" firstAttribute="top" secondItem="364-by-PjG" secondAttribute="bottom" constant="8" id="LKx-o7-qam"/>
+                            <constraint firstItem="3Q8-1v-6ql" firstAttribute="top" secondItem="eEO-eh-iIq" secondAttribute="bottom" constant="11" id="OVx-Wr-rm8"/>
+                            <constraint firstItem="364-by-PjG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="Xt0-Kn-PGp"/>
+                            <constraint firstItem="3Q8-1v-6ql" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="Zyf-M4-5KK"/>
+                            <constraint firstItem="eEO-eh-iIq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="cVO-fA-yA1"/>
+                            <constraint firstItem="3Q8-1v-6ql" firstAttribute="top" secondItem="eEO-eh-iIq" secondAttribute="bottom" constant="11" id="kXN-dk-f5S"/>
+                            <constraint firstAttribute="trailing" secondItem="3Q8-1v-6ql" secondAttribute="trailing" constant="16" id="khm-Cz-GdG"/>
+                            <constraint firstItem="364-by-PjG" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="19" id="qhu-c8-7dG"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="3Q8-1v-6ql" secondAttribute="bottom" constant="20" id="zT5-cv-lRG"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="author" destination="eEO-eh-iIq" id="w0K-Z4-rcb"/>
+                        <outlet property="content" destination="3Q8-1v-6ql" id="L5N-uB-fnJ"/>
                         <outlet property="subject" destination="364-by-PjG" id="6wr-iz-bYL"/>
                     </connections>
                 </viewController>
