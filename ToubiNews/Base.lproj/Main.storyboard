@@ -139,7 +139,7 @@
         <scene sceneID="G4q-5M-aDM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OOP-eH-fYd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Newsgroups" id="AZk-P0-Lhz"/>
+                    <tabBarItem key="tabBarItem" title="Newsgroups" image="TabBarNews.png" id="AZk-P0-Lhz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uwP-bQ-ZoW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -200,7 +200,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="" id="pdv-tW-M7g"/>
+                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="toNewsDetail" id="pdv-tW-M7g"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -247,11 +247,11 @@
             </objects>
             <point key="canvasLocation" x="262" y="1109"/>
         </scene>
-        <!--Search-->
+        <!--Navigation Controller-->
         <scene sceneID="hKy-RU-Nqc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MFX-g8-f9A" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="2bD-2T-mt5"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="2bD-2T-mt5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yuP-SP-2Vl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -267,6 +267,9 @@
             <point key="canvasLocation" x="1194" y="1504"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TabBarNews.png" width="32" height="32"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pdv-tW-M7g"/>
     </inferredMetricsTieBreakers>

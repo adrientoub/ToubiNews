@@ -184,6 +184,12 @@
   }
 }
 
+-(void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+  if (tableView != self.tableView)
+    [self performSegueWithIdentifier:@"toNewsDetail" sender:[tableView cellForRowAtIndexPath:indexPath]];
+}
+
 -(void)search:(nonnull UISearchBar*)searchBar
 {
   NSString *text = [searchBar text];

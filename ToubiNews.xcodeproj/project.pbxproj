@@ -10,6 +10,7 @@
 		7AC72C9B1B25E87200BF7B18 /* NewsgroupTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC72C9A1B25E87200BF7B18 /* NewsgroupTVC.m */; };
 		7AC72C9E1B25E8E300BF7B18 /* Newsgroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC72C9D1B25E8E300BF7B18 /* Newsgroup.m */; };
 		7AE052311B287C3400E4AD73 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE052301B287C3400E4AD73 /* Cell.xib */; };
+		7AE052351B289EE800E4AD73 /* TabBarNews.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AE052341B289EE800E4AD73 /* TabBarNews.png */; };
 		7AE7E1B51B27405400CBB5B9 /* SearchTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE7E1B41B27405400CBB5B9 /* SearchTVC.m */; };
 		ACB250E51B25A49000998A65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB250E41B25A49000998A65 /* main.m */; };
 		ACB250E81B25A49000998A65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB250E71B25A49000998A65 /* AppDelegate.m */; };
@@ -39,6 +40,7 @@
 		7AC72C9C1B25E8E300BF7B18 /* Newsgroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Newsgroup.h; sourceTree = "<group>"; };
 		7AC72C9D1B25E8E300BF7B18 /* Newsgroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Newsgroup.m; sourceTree = "<group>"; };
 		7AE052301B287C3400E4AD73 /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		7AE052341B289EE800E4AD73 /* TabBarNews.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TabBarNews.png; path = ../../Downloads/TabBarNews.png; sourceTree = "<group>"; };
 		7AE7E1B31B27405400CBB5B9 /* SearchTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTVC.h; sourceTree = "<group>"; };
 		7AE7E1B41B27405400CBB5B9 /* SearchTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTVC.m; sourceTree = "<group>"; };
 		ACB250DF1B25A49000998A65 /* ToubiNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToubiNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +115,7 @@
 				ACB250EA1B25A49000998A65 /* ViewController.m */,
 				ACB250EC1B25A49000998A65 /* Main.storyboard */,
 				ACB250EF1B25A49000998A65 /* Images.xcassets */,
+				7AE052341B289EE800E4AD73 /* TabBarNews.png */,
 				ACB250F11B25A49000998A65 /* LaunchScreen.xib */,
 				ACB250E21B25A49000998A65 /* Supporting Files */,
 				7AC72C991B25E87200BF7B18 /* NewsgroupTVC.h */,
@@ -233,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE052351B289EE800E4AD73 /* TabBarNews.png in Resources */,
 				ACB250EE1B25A49000998A65 /* Main.storyboard in Resources */,
 				7AE052311B287C3400E4AD73 /* Cell.xib in Resources */,
 				ACB250F31B25A49000998A65 /* LaunchScreen.xib in Resources */,
