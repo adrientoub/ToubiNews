@@ -116,9 +116,9 @@
   [cell.textLabel setText:[newsgroup group_name]];
   [cell.detailTextLabel setText:[NSString stringWithFormat:@"%d news", [newsgroup topic_nb]]];
 
-    // Configure the cell...
+  // Configure the cell...
     
-    return cell;
+  return cell;
 }
 
 /*
@@ -159,12 +159,15 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    NewsTVC* news = [segue destinationViewController];
-    NSIndexPath* index = [self.tableView indexPathForCell:sender];
-    [news setNewsgroup:[[self.newsgroups objectAtIndex: index.row] group_name]];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  // Get the new view controller using [segue destinationViewController].
+  // Pass the selected object to the new view controller.
+  NewsTVC* news = [segue destinationViewController];
+  NSIndexPath* index = [self.tableView indexPathForCell:sender];
+  Newsgroup* newsgroup = [self.newsgroups objectAtIndex: index.row];
+  [news setNewsgroup:[newsgroup group_name]];
+  [news setTopicNb: [newsgroup topic_nb]];
 }
 
 @end

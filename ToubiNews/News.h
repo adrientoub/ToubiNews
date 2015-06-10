@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSString* uid;
 @property (nonatomic, strong) NSString* author;
 @property (nonatomic, strong) NSString* subject;
+@property (nonatomic, strong) NSString* creation_date;
 
 @end

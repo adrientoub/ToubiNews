@@ -20,7 +20,6 @@
     [super viewDidLoad];
     
     self.newsArray = [[NSMutableArray alloc] init];
-    //self.newsgroup = @"epita.assistants";
 
     [self getNews];
 
@@ -31,7 +30,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -42,67 +42,71 @@
 
 - (void)getNews
 {
-    NSString* strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/news.epita.fr/%@", self.newsgroup];
-    //2
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:strURL]];
-    //3
-    NSURLSession *session = [NSURLSession sharedSession];
-    //4
-    [[session dataTaskWithRequest:request completionHandler:^(NSData *data,
-                                                              NSURLResponse *response, NSError *error)
+  if (self.updating)
+    return;
+  self.updating = YES;
+  NSString* strURL;
+  if ([self.newsArray count] == 0)
+    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/news.epita.fr/%@?limit=25", self.newsgroup];
+  else
+  {
+    NSString* date = [[self.newsArray objectAtIndex:[self.newsArray count] - 1] creation_date];
+    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/news.epita.fr/%@?limit=25&start_date=%@%%2B0000", self.newsgroup, date];
+    NSLog(@"%@", strURL);
+  }
+
+  NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:strURL]];
+  NSURLSession *session = [NSURLSession sharedSession];
+
+  [[session dataTaskWithRequest:request completionHandler:^(NSData *data,
+                                                            NSURLResponse *response, NSError *error)
+  {
+    NSError* jsonError;
+    if (!error && [response isKindOfClass:[NSHTTPURLResponse class]] &&
+       ((NSHTTPURLResponse *)response).statusCode == 200)
     {
-        NSError* jsonError;
-        if (!error && [response isKindOfClass:[NSHTTPURLResponse class]] &&
-            ((NSHTTPURLResponse *)response).statusCode == 200)
-        {
-            NSArray *arrayJson = [NSJSONSerialization JSONObjectWithData: data
-                                                                   options: NSJSONReadingMutableContainers error: &jsonError];
-            if ([arrayJson count] == 0)
-            {
-                [self displayError];
-            }
-            else
-            {
-                if (!jsonError)
-                {
-                    //6
-                    [self fetchDatas:arrayJson];
-                }
-                else
-                {
-                    NSLog(@"json convertion error");
-                }
-            }
-        }
-        else
-        {
-            [self displayError];
-        }
-    }] resume];
+      NSArray *arrayJson = [NSJSONSerialization JSONObjectWithData: data
+                                                           options: NSJSONReadingMutableContainers error: &jsonError];
+      if (!jsonError)
+      {
+        [self fetchDatas:arrayJson];
+      }
+      else
+      {
+        NSLog(@"json convertion error");
+      }
+    }
+    else
+    {
+      [self displayError];
+    }
+  }] resume];
 }
 
 - (void)fetchDatas:(NSArray*)jsonArray
 {
-    NSLog(@"JSON: %@", jsonArray);
-    [self parseNews:jsonArray];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-    });
+  NSLog(@"JSON: %@", jsonArray);
+  [self parseNews:jsonArray];
+  dispatch_async(dispatch_get_main_queue(), ^{
+      [self.tableView reloadData];
+  });
+  self.updating = false;
 }
 
 - (void)parseNews:(NSArray*)jsonArray
 {
-    for (NSDictionary* newsDico in jsonArray)
-    {
-        News* newsTmp = [[News alloc] init];
-        newsTmp.iId = [[newsDico objectForKey:@"id"] intValue];
-        newsTmp.uid = [newsDico objectForKey:@"uid"];
-        newsTmp.subject = [newsDico objectForKey:@"subject"];
-        newsTmp.author = [newsDico objectForKey:@"author"];
-        
-        //end of parsing
-        [self.newsArray addObject:newsTmp];
-    }
+  for (NSDictionary* newsDico in jsonArray)
+  {
+    News* newsTmp = [[News alloc] init];
+    newsTmp.iId = [[newsDico objectForKey:@"id"] intValue];
+    newsTmp.uid = [newsDico objectForKey:@"uid"];
+    newsTmp.subject = [newsDico objectForKey:@"subject"];
+    newsTmp.author = [newsDico objectForKey:@"author"];
+    newsTmp.creation_date = [newsDico objectForKey:@"creation_date"];
+
+    //end of parsing
+    [self.newsArray addObject:newsTmp];
+  }
 }
 
 #pragma mark - Table view data source
@@ -113,19 +117,36 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     // Return the number of rows in the section.
-    return [self.newsArray count];
+  if ([self.newsArray count] == 0)
+    return 0;
+  else
+    return self.topicNb;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsName" forIndexPath:indexPath];
 
-  News* news = [self.newsArray objectAtIndex:indexPath.row];
-  [cell.textLabel setText: [news subject]];
-  [cell.detailTextLabel setText:[news author]];
+  if (indexPath.row >= [self.newsArray count] - 10 && [self.newsArray count] != self.topicNb)
+  {
+    [self getNews];
+  }
 
+  if (indexPath.row >= [self.newsArray count])
+  {
+    [self getNews];
+    [cell.textLabel setText: @""];
+    [cell.detailTextLabel setText:@""];
+  }
+  else
+  {
+    News* news = [self.newsArray objectAtIndex:indexPath.row];
+    [cell.textLabel setText: [news subject]];
+    [cell.detailTextLabel setText:[news author]];
+  }
   return cell;
 }
 

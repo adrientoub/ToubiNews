@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSMutableArray* newsArray;
 @property (nonatomic, strong) NSString* newsgroup;
+@property (nonatomic, assign) int topicNb;
+@property (atomic, assign) BOOL updating;
 
 - (void)getNews;
 - (void)parseNews:(NSArray*)jsonArray;
