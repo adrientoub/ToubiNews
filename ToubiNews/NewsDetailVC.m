@@ -18,8 +18,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.subject setText:[self.news subject]];
-    [self.author setText:[self.news author]];
+    NSString* formatedOutput = [NSString stringWithFormat:@"<h1>%@</h1><h2>%@</h2><p>Loading</p>",
+                              [self.news subject],
+                              [self.news author]];
+    [self.newsContent loadHTMLString:formatedOutput baseURL:nil];
     [self getNewsDetails];
 }
 
@@ -78,12 +80,17 @@
   });
 }
 
+-(NSString*)nl2br:(NSString*)content
+{
+  return [content stringByReplacingOccurrencesOfString:@"\n" withString:@"<br>\n"];
+}
+
 -(NSString*)parseNews: (NSDictionary*)jsonArray
 {
   NSString* formatedOutput = [NSString stringWithFormat:@"<h1>%@</h1><h2>%@</h2><p>%@</p>",
                               [jsonArray objectForKey:@"subject"],
                               [jsonArray objectForKey:@"author"],
-                              [jsonArray objectForKey:@"content"]];
+                              [self nl2br:[jsonArray objectForKey:@"content"]]];
   NSArray* children = [jsonArray objectForKey:@"children"];
   for (NSDictionary* news in children)
   {
@@ -95,7 +102,6 @@
 
 - (void)parseJSON:(NSDictionary*)jsonArray
 {
-  [self.content setText: [jsonArray objectForKey:@"content"]];
   NSString* formatedOutput = [self parseNews:jsonArray];
   [self.newsContent loadHTMLString:formatedOutput baseURL:nil];
 }

@@ -11,10 +11,7 @@
 
 @interface NewsDetailVC : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *subject;
 @property (weak, nonatomic) IBOutlet UIWebView *newsContent;
-@property (weak, nonatomic) IBOutlet UITextView *content;
-@property (weak, nonatomic) IBOutlet UILabel *author;
 @property (nonatomic, strong) News* news;
 
 @end

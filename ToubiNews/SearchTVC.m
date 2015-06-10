@@ -49,12 +49,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell" forIndexPath:indexPath];
+  UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"resultCell" forIndexPath:indexPath];
 
-  News* news = [self.newsArray objectAtIndex:indexPath.row];
-  [cell.textLabel setText: [news subject]];
-  [cell.detailTextLabel setText:[news author]];
-
+  if ([self.newsArray count] > indexPath.row)
+  {
+    News* news = [self.newsArray objectAtIndex:indexPath.row];
+    [cell.textLabel setText: [news subject]];
+    [cell.detailTextLabel setText:[news author]];
+  }
   return cell;
 }
 
@@ -107,17 +109,13 @@
 
 - (void) displayError
 {
-  /*
-  UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-  [alert show];
-   */
 }
 
 - (void)getNews:(NSString*)term withScope:(NSString*)scope
 {
   NSString* strURL;
   if ([scope  isEqual: @"Title"])
-    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@", term];
+    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&title", term];
   else
     strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&author", term];
 
