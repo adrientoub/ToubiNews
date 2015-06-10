@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7AC72C9B1B25E87200BF7B18 /* NewsgroupTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC72C9A1B25E87200BF7B18 /* NewsgroupTVC.m */; };
 		7AC72C9E1B25E8E300BF7B18 /* Newsgroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC72C9D1B25E8E300BF7B18 /* Newsgroup.m */; };
+		7AE7E1B51B27405400CBB5B9 /* SearchTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE7E1B41B27405400CBB5B9 /* SearchTVC.m */; };
 		ACB250E51B25A49000998A65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB250E41B25A49000998A65 /* main.m */; };
 		ACB250E81B25A49000998A65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB250E71B25A49000998A65 /* AppDelegate.m */; };
 		ACB250EB1B25A49000998A65 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB250EA1B25A49000998A65 /* ViewController.m */; };
@@ -36,6 +37,8 @@
 		7AC72C9A1B25E87200BF7B18 /* NewsgroupTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsgroupTVC.m; sourceTree = "<group>"; };
 		7AC72C9C1B25E8E300BF7B18 /* Newsgroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Newsgroup.h; sourceTree = "<group>"; };
 		7AC72C9D1B25E8E300BF7B18 /* Newsgroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Newsgroup.m; sourceTree = "<group>"; };
+		7AE7E1B31B27405400CBB5B9 /* SearchTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTVC.h; sourceTree = "<group>"; };
+		7AE7E1B41B27405400CBB5B9 /* SearchTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTVC.m; sourceTree = "<group>"; };
 		ACB250DF1B25A49000998A65 /* ToubiNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToubiNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB250E31B25A49000998A65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACB250E41B25A49000998A65 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 				7AC72C9A1B25E87200BF7B18 /* NewsgroupTVC.m */,
 				7AC72C9C1B25E8E300BF7B18 /* Newsgroup.h */,
 				7AC72C9D1B25E8E300BF7B18 /* Newsgroup.m */,
+				7AE7E1B31B27405400CBB5B9 /* SearchTVC.h */,
+				7AE7E1B41B27405400CBB5B9 /* SearchTVC.m */,
 			);
 			path = ToubiNews;
 			sourceTree = "<group>";
@@ -188,7 +193,7 @@
 		ACB250D71B25A49000998A65 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Toub;
 				TargetAttributes = {
 					ACB250DE1B25A49000998A65 = {
@@ -253,6 +258,7 @@
 				ACB2510F1B25A56100998A65 /* NewsDetailVC.m in Sources */,
 				7AC72C9B1B25E87200BF7B18 /* NewsgroupTVC.m in Sources */,
 				ACB251101B25A56100998A65 /* NewsTVC.m in Sources */,
+				7AE7E1B51B27405400CBB5B9 /* SearchTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +320,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -378,6 +385,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ToubiNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.toub.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -391,6 +399,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ToubiNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.toub.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -410,6 +419,7 @@
 				);
 				INFOPLIST_FILE = ToubiNewsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.toub.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToubiNews.app/ToubiNews";
 			};
@@ -425,6 +435,7 @@
 				);
 				INFOPLIST_FILE = ToubiNewsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.toub.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToubiNews.app/ToubiNews";
 			};

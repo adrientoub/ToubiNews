@@ -74,13 +74,30 @@
 {
   NSLog(@"JSON: %@", jsonArray);
   dispatch_async(dispatch_get_main_queue(), ^{
-    [self parseNews:jsonArray];
+    [self parseJSON:jsonArray];
   });
 }
 
-- (void)parseNews:(NSDictionary*)jsonArray
+-(NSString*)parseNews: (NSDictionary*)jsonArray
+{
+  NSString* formatedOutput = [NSString stringWithFormat:@"<h1>%@</h1><h2>%@</h2><p>%@</p>",
+                              [jsonArray objectForKey:@"subject"],
+                              [jsonArray objectForKey:@"author"],
+                              [jsonArray objectForKey:@"content"]];
+  NSArray* children = [jsonArray objectForKey:@"children"];
+  for (NSDictionary* news in children)
+  {
+    formatedOutput = [NSString stringWithFormat:@"%@ %@", formatedOutput, [self parseNews:news]];
+  }
+
+  return formatedOutput;
+}
+
+- (void)parseJSON:(NSDictionary*)jsonArray
 {
   [self.content setText: [jsonArray objectForKey:@"content"]];
+  NSString* formatedOutput = [self parseNews:jsonArray];
+  [self.newsContent loadHTMLString:formatedOutput baseURL:nil];
 }
 
 /*
