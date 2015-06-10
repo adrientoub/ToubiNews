@@ -48,12 +48,15 @@
 
 -(void)searchDisplayControllerWillBeginSearch:(nonnull UISearchDisplayController *)controller
 {
-  [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"Cell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"resultCell"];
+  [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"Cell"
+                                                                                  bundle:[NSBundle mainBundle]]
+                                            forCellReuseIdentifier:@"resultCell"];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell" forIndexPath:indexPath];
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell"
+                                                          forIndexPath:indexPath];
 
   if ([self.newsArray count] > indexPath.row)
   {

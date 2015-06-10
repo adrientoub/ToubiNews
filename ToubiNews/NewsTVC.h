@@ -11,11 +11,13 @@
 @interface NewsTVC : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray* newsArray;
+@property (nonatomic, strong) NSMutableArray* searchArray;
 @property (nonatomic, strong) NSString* newsgroup;
 @property (nonatomic, assign) int topicNb;
 @property (atomic, assign) BOOL updating;
 
 - (void)getNews;
-- (void)parseNews:(NSArray*)jsonArray;
+- (void)parseNews:(NSArray*)jsonArray isSearch:(BOOL)search;
+- (void)loadJSON:(NSString*)strURL isSearch:(BOOL)search;
 
 @end
