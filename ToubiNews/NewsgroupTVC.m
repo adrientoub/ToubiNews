@@ -104,20 +104,19 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [self.newsgroups count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsgroupCell" forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsgroupCell" forIndexPath:indexPath];
 
   Newsgroup* newsgroup = [self.newsgroups objectAtIndex:indexPath.row];
   [cell.textLabel setText:[newsgroup group_name]];
   [cell.detailTextLabel setText:[NSString stringWithFormat:@"%d news", [newsgroup topic_nb]]];
 
-  // Configure the cell...
-    
   return cell;
 }
 
@@ -166,7 +165,7 @@
   NewsTVC* news = [segue destinationViewController];
   NSIndexPath* index = [self.tableView indexPathForCell:sender];
   Newsgroup* newsgroup = [self.newsgroups objectAtIndex: index.row];
-  [news setNewsgroup:[newsgroup group_name]];
+  [news setNewsgroup: [newsgroup group_name]];
   [news setTopicNb: [newsgroup topic_nb]];
 }
 
