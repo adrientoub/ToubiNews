@@ -66,17 +66,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDt-hE-WaY">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" calendarEvent="YES"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DDt-hE-WaY" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="4Mg-z4-eJv"/>
-                            <constraint firstAttribute="trailing" secondItem="DDt-hE-WaY" secondAttribute="trailing" id="OBo-LR-MNf"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="DDt-hE-WaY" secondAttribute="bottom" id="brh-A9-kCR"/>
-                            <constraint firstItem="DDt-hE-WaY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="yQc-Tw-zex"/>
+                            <constraint firstAttribute="bottom" secondItem="DDt-hE-WaY" secondAttribute="bottom" id="2nJ-ec-Mug"/>
+                            <constraint firstAttribute="trailing" secondItem="DDt-hE-WaY" secondAttribute="trailing" id="3u5-sF-fyf"/>
+                            <constraint firstItem="DDt-hE-WaY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="7u9-xH-KCS"/>
+                            <constraint firstItem="DDt-hE-WaY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="hg0-No-Eem"/>
                         </constraints>
                     </view>
                     <connections>
@@ -169,6 +169,7 @@
                             <scopeButtonTitles>
                                 <string>Title</string>
                                 <string>Author</string>
+                                <string>Message</string>
                             </scopeButtonTitles>
                             <connections>
                                 <outlet property="delegate" destination="Fm9-gW-9xr" id="I6e-vp-tRe"/>
@@ -215,7 +216,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YGK-VE-0yc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="inw-Qy-MgS">
+                <searchDisplayController id="inw-Qy-MgS" userLabel="Search Controller">
                     <connections>
                         <outlet property="delegate" destination="Fm9-gW-9xr" id="l4q-Fg-YhG"/>
                         <outlet property="searchBar" destination="0Ji-7R-Dnt" id="Iuz-Cy-fp9"/>

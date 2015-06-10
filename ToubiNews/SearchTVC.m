@@ -46,10 +46,14 @@
   return [self.newsArray count];
 }
 
+-(void)searchDisplayControllerWillBeginSearch:(nonnull UISearchDisplayController *)controller
+{
+  [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"Cell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"resultCell"];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"resultCell" forIndexPath:indexPath];
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell" forIndexPath:indexPath];
 
   if ([self.newsArray count] > indexPath.row)
   {
@@ -98,13 +102,17 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
   // Get the new view controller using [segue destinationViewController].
   // Pass the selected object to the new view controller.
   NewsDetailVC* detail = [segue destinationViewController];
-  NSIndexPath* index = [self.tableView indexPathForCell:sender];
+  NSIndexPath* index;
+  if (self.searchDisplayController.active == YES)
+    index = [self.searchDisplayController.searchResultsTableView indexPathForCell:sender];
+  else
+    index = [self.tableView indexPathForCell:sender];
   [detail setNews:[self.newsArray objectAtIndex: index.row]];
-
 }
 
 - (void) displayError
@@ -114,10 +122,12 @@
 - (void)getNews:(NSString*)term withScope:(NSString*)scope
 {
   NSString* strURL;
-  if ([scope  isEqual: @"Title"])
+  if ([scope isEqual: @"Title"])
     strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&title", term];
-  else
+  else if ([scope isEqual: @"Author"])
     strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&author", term];
+  else
+    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&content", term];
 
   NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:strURL]];
   NSURLSession *session = [NSURLSession sharedSession];
@@ -130,20 +140,14 @@
       {
         NSArray *arrayJson = [NSJSONSerialization JSONObjectWithData: data
                                                              options: NSJSONReadingMutableContainers error: &jsonError];
-        if ([arrayJson count] == 0)
+
+        if (!jsonError)
         {
-          [self displayError];
+          [self fetchDatas:arrayJson];
         }
         else
         {
-          if (!jsonError)
-          {
-            [self fetchDatas:arrayJson];
-          }
-          else
-          {
-            NSLog(@"json convertion error");
-          }
+          NSLog(@"json convertion error");
         }
       }
       else
@@ -158,6 +162,8 @@
   NSLog(@"JSON: %@", jsonArray);
   [self parseNews:jsonArray];
   dispatch_async(dispatch_get_main_queue(), ^{
+    if (self.searchDisplayController.active == YES)
+      [self.searchDisplayController.searchResultsTableView reloadData];
     [self.tableView reloadData];
   });
 }
