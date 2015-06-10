@@ -119,11 +119,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-  if ([self.newsArray count] == 0)
+  // Return the number of rows in the section.
+  unsigned long count = [self.newsArray count];
+  if (count == 0)
     return 0;
+  else if (count == self.topicNb)
+    return count;
   else
-    return self.topicNb;
+    return count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -145,7 +148,7 @@
   {
     News* news = [self.newsArray objectAtIndex:indexPath.row];
     [cell.textLabel setText: [news subject]];
-    [cell.detailTextLabel setText:[news author]];
+    [cell.detailTextLabel setText: [news author]];
   }
   return cell;
 }
@@ -189,11 +192,12 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view
-    NewsDetailVC* detail = [segue destinationViewController];
-    NSIndexPath* index = [self.tableView indexPathForCell:sender];
-    [detail setNews:[self.newsArray objectAtIndex: index.row]];
+  // Get the new view controller using [segue destinationViewController].
+  // Pass the selected object to the new view
+
+  NewsDetailVC* detail = [segue destinationViewController];
+  NSIndexPath* index = [self.tableView indexPathForCell:sender];
+  [detail setNews:[self.newsArray objectAtIndex: index.row]];
 }
 
 @end

@@ -47,22 +47,14 @@
           ((NSHTTPURLResponse *)response).statusCode == 200)
       {
         NSDictionary *arrayJson = [NSJSONSerialization JSONObjectWithData: data
-                                                             options: NSJSONReadingMutableContainers error: &jsonError];
-        if ([arrayJson count] == 0)
+                                                                  options: NSJSONReadingMutableContainers error: &jsonError];
+        if (!jsonError)
         {
-          [self displayError];
+          [self fetchDatas:arrayJson];
         }
         else
         {
-          if (!jsonError)
-          {
-            //6
-            [self fetchDatas:arrayJson];
-          }
-          else
-          {
-            NSLog(@"json convertion error");
-          }
+          NSLog(@"json convertion error");
         }
       }
       else
