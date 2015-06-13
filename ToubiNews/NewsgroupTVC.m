@@ -110,17 +110,38 @@
   return [self.newsgroups count];
 }
 
+-(UIColor*)backgroundColorForSelectedCellAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+  return [UIColor colorWithRed:61/255.0 green:166/255.0 blue:237/255.0 alpha:1];
+}
+
+-(UIColor*)backgroundColorForCellAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+  CGFloat ratio = (1. * indexPath.row) / [self.newsgroups count];
+  CGFloat red = (ratio * 45 + 210.0) / 255.;
+  CGFloat green = (ratio * 144. + 56.) / 255.;
+  CGFloat blue = (ratio * -56. + 56.) / 255.;
+  return [UIColor colorWithRed:red green:green blue:blue alpha:1];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsgroupCell" forIndexPath:indexPath];
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsgroupCell"
+                                                          forIndexPath:indexPath];
 
   Newsgroup* newsgroup = [self.newsgroups objectAtIndex:indexPath.row];
   [cell.textLabel setText:[newsgroup group_name]];
   [cell.detailTextLabel setText:[NSString stringWithFormat:@"%d news", [newsgroup topic_nb]]];
-  UIColor* color = [UIColor colorWithRed:210/255.0 green:56/255.0 blue:56/255.0 alpha:1];
+
+  UIColor* color = [self backgroundColorForCellAtIndexPath: indexPath];
   cell.contentView.backgroundColor = color;
   cell.textLabel.backgroundColor = color;
   cell.detailTextLabel.backgroundColor = color;
+
+  cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+  UIView* selectionColor = [[UIView alloc] init];
+  selectionColor.backgroundColor = [self backgroundColorForSelectedCellAtIndexPath:indexPath];
+  cell.selectedBackgroundView = selectionColor;
 
   cell.textLabel.textColor = [UIColor whiteColor];
   cell.detailTextLabel.textColor = [UIColor whiteColor];
