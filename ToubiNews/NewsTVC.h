@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString* newsgroup;
 @property (nonatomic, assign) int topicNb;
 @property (atomic, assign) BOOL updating;
+@property (assign, nonatomic) CGFloat lastContentOffset;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 

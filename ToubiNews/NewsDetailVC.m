@@ -18,9 +18,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSString* formatedOutput = [NSString stringWithFormat:@"<h1>%@</h1><h2>%@</h2><p>Loading</p>",
-                              [self.news subject],
-                              [self.news author]];
+    NSString* formatedOutput = [self createOutput: self.news.subject
+                                           author: self.news.author
+                                          content: @"Loading"];
     [self.newsContent loadHTMLString:formatedOutput baseURL:nil];
     [self getNewsDetails];
 }
@@ -77,12 +77,17 @@
   return [content stringByReplacingOccurrencesOfString:@"\n" withString:@"<br>\n"];
 }
 
+-(NSString*)createOutput:(NSString*)title author:(NSString*)author content:(NSString*)content
+{
+  NSString* html = @"<h1 style=\"text-align: center;\">%@</h1><h2>%@</h2><p>%@</p>";
+  return [NSString stringWithFormat: html, title, author, content];
+}
+
 -(NSString*)parseNews: (NSDictionary*)jsonArray
 {
-  NSString* formatedOutput = [NSString stringWithFormat:@"<h1>%@</h1><h2>%@</h2><p>%@</p>",
-                              [jsonArray objectForKey:@"subject"],
-                              [jsonArray objectForKey:@"author"],
-                              [self nl2br:[jsonArray objectForKey:@"content"]]];
+  NSString* formatedOutput = [self createOutput:[jsonArray objectForKey:@"subject"]
+                                         author:[jsonArray objectForKey:@"author"]
+                                        content:[self nl2br:[jsonArray objectForKey:@"content"]]];
   NSArray* children = [jsonArray objectForKey:@"children"];
   for (NSDictionary* news in children)
   {

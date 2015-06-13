@@ -161,9 +161,13 @@
   return [UIColor colorWithRed: red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
 }
 
--(UIColor*)backgroundColorForCellAtIndexPath:(nonnull NSIndexPath *)indexPath
+-(UIColor*)backgroundColorForCellAtIndexPath:(nonnull NSIndexPath *)indexPath withTableView:(UITableView*)tableView
 {
-  CGFloat ratio = (1. * indexPath.row) / [self.newsgroups count];
+  CGFloat ratio;
+  if (tableView == self.tableView)
+    ratio = (1. * indexPath.row) / [self.newsgroups count];
+  else
+    ratio = (1. * indexPath.row) / [self.searchArray count];
   CGFloat upRed = 2.;
   CGFloat downRed = 116.;
   CGFloat upGreen = 94.;
@@ -205,7 +209,7 @@
     }
   }
 
-  UIColor* color = [self backgroundColorForCellAtIndexPath: indexPath];
+  UIColor* color = [self backgroundColorForCellAtIndexPath: indexPath withTableView:tableView];
   cell.contentView.backgroundColor = color;
   cell.textLabel.backgroundColor = color;
   cell.detailTextLabel.backgroundColor = color;
@@ -219,6 +223,15 @@
   cell.detailTextLabel.textColor = [UIColor whiteColor];
 
   return cell;
+}
+
+-(void)scrollViewDidScroll:(nonnull UIScrollView *)scrollView
+{
+  if (scrollView.contentOffset.y < -64 && scrollView.contentOffset.y < self.lastContentOffset)
+  {
+    [self.searchBar becomeFirstResponder];
+  }
+  self.lastContentOffset = scrollView.contentOffset.y;
 }
 
 /*
@@ -257,6 +270,41 @@
 
 
 #pragma mark - Navigation
+
+
+-(void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+  if (tableView != self.tableView)
+    [self performSegueWithIdentifier:@"accessNewsDetail"
+                              sender:[tableView cellForRowAtIndexPath:indexPath]];
+}
+
+-(void)search:(nonnull UISearchBar*)searchBar
+{
+  NSString *text = [searchBar text];
+  NSString *scope = [[searchBar scopeButtonTitles] objectAtIndex:[searchBar selectedScopeButtonIndex]];
+  NSLog(@"Searching %@ in %@", text, scope);
+  [self getNews:text withScope:scope];
+}
+
+-(void)searchBar:(nonnull UISearchBar *)searchBar textDidChange:(nonnull NSString *)searchText
+{
+  if ([searchText length] > 3)
+  {
+    [self search: searchBar];
+  }
+}
+
+-(void)searchBar:(nonnull UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+{
+  if ([[searchBar text] length] > 3)
+    [self search: searchBar];
+}
+
+-(void)searchBarSearchButtonClicked:(nonnull UISearchBar *)searchBar
+{
+  [self search: searchBar];
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

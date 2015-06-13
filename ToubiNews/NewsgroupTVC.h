@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSMutableArray* newsgroups;
 @property (nonatomic, strong) NSMutableArray* searchArray;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (assign, nonatomic) CGFloat lastContentOffset;
 
 - (void)getNewsgroups;
 - (void)fetchDatas:(NSArray*)jsonArray isSearch:(BOOL)search;

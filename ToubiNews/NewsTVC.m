@@ -84,6 +84,43 @@
     return [self.searchArray count];
 }
 
+-(void)scrollViewDidScroll:(nonnull UIScrollView *)scrollView
+{
+  if (scrollView.contentOffset.y < -64 && scrollView.contentOffset.y < self.lastContentOffset)
+  {
+    [self.searchBar becomeFirstResponder];
+  }
+  self.lastContentOffset = scrollView.contentOffset.y;
+}
+
+-(UIColor*)backgroundColorForSelectedCellAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+  int red = 245;
+  int green = 138;
+  int blue = 67;
+  return [UIColor colorWithRed: red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
+}
+
+-(UIColor*)backgroundColorForCellAtIndexPath:(nonnull NSIndexPath *)indexPath withTableView:(UITableView*)tableView
+{
+  CGFloat ratio;
+  if (tableView == self.tableView)
+    ratio = (1. * indexPath.row) / self.topicNb;
+  else
+    ratio = (1. * indexPath.row) / [self.searchArray count];
+  CGFloat upRed = 2.;
+  CGFloat downRed = 116.;
+  CGFloat upGreen = 94.;
+  CGFloat downGreen = 205.;
+  CGFloat upBlue = 146.;
+  CGFloat downBlue = 250.;
+
+  CGFloat red = (ratio * (downRed - upRed) + upRed) / 255.;
+  CGFloat green = (ratio * (downGreen - upGreen) + upGreen) / 255.;
+  CGFloat blue = (ratio * (downBlue - upBlue) + upBlue) / 255.;
+  return [UIColor colorWithRed:red green:green blue:blue alpha:1];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell"
@@ -117,6 +154,20 @@
       [cell.detailTextLabel setText: [news author]];
     }
   }
+
+  UIColor* color = [self backgroundColorForCellAtIndexPath: indexPath withTableView:tableView];
+  cell.contentView.backgroundColor = color;
+  cell.textLabel.backgroundColor = color;
+  cell.detailTextLabel.backgroundColor = color;
+
+  cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+  UIView* selectionColor = [[UIView alloc] init];
+  selectionColor.backgroundColor = [self backgroundColorForSelectedCellAtIndexPath:indexPath];
+  cell.selectedBackgroundView = selectionColor;
+
+  cell.textLabel.textColor = [UIColor whiteColor];
+  cell.detailTextLabel.textColor = [UIColor whiteColor];
+
   return cell;
 }
 
