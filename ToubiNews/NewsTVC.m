@@ -17,18 +17,20 @@
 @implementation NewsTVC
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+  [super viewDidLoad];
     
-    self.newsArray = [[NSMutableArray alloc] init];
-    self.searchArray = [[NSMutableArray alloc] init];
+  self.newsArray = [[NSMutableArray alloc] init];
+  self.searchArray = [[NSMutableArray alloc] init];
 
-    [self getNews];
+  [self getNews];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+  self.tableView.contentOffset = CGPointMake(0, self.searchBar.frame.size.height - self.tableView.contentOffset.y);
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  // Uncomment the following line to preserve selection between presentations.
+  // self.clearsSelectionOnViewWillAppear = NO;
+
+  // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,6 +88,7 @@
 {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell"
                                                           forIndexPath:indexPath];
+  cell.userInteractionEnabled = YES;
 
   if (tableView != self.tableView)
   {
@@ -105,6 +108,7 @@
       [self getNews];
       [cell.textLabel setText: @""];
       [cell.detailTextLabel setText:@""];
+      cell.userInteractionEnabled = NO;
     }
     else
     {
@@ -118,9 +122,10 @@
 
 -(void)searchDisplayControllerWillBeginSearch:(nonnull UISearchDisplayController *)controller
 {
-  [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"Cell"
-                                                                                  bundle:[NSBundle mainBundle]]
-                                            forCellReuseIdentifier:@"resultCell"];
+  UITableView* searchResultTableView = self.searchDisplayController.searchResultsTableView;
+  [searchResultTableView registerNib: [UINib nibWithNibName: @"Cell"
+                                                     bundle: [NSBundle mainBundle]]
+              forCellReuseIdentifier: @"resultCell"];
 }
 
 #pragma mark - Navigation
@@ -213,6 +218,7 @@
     newsTmp.uid = [newsDico objectForKey:@"uid"];
     newsTmp.subject = [newsDico objectForKey:@"subject"];
     newsTmp.author = [newsDico objectForKey:@"author"];
+    newsTmp.creation_date = [newsDico objectForKey:@"creation_date"];
 
     if (search)
       [self.searchArray addObject:newsTmp];

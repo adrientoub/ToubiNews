@@ -16,6 +16,8 @@
 @property (nonatomic, assign) int topicNb;
 @property (atomic, assign) BOOL updating;
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
 - (void)getNews;
 - (void)parseNews:(NSArray*)jsonArray isSearch:(BOOL)search;
 - (void)loadJSON:(NSString*)strURL isSearch:(BOOL)search;

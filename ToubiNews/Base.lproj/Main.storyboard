@@ -62,6 +62,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="News" id="wZi-BP-xea"/>
                     <connections>
+                        <outlet property="searchBar" destination="9wD-8M-NEe" id="qBS-tm-ud9"/>
                         <outlet property="searchDisplayController" destination="eAK-vT-QUs" id="nkY-hg-buV"/>
                     </connections>
                 </tableViewController>
@@ -166,9 +167,14 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OOP-eH-fYd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Newsgroups" image="TabBarNews.png" id="AZk-P0-Lhz"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uwP-bQ-ZoW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="uwP-bQ-ZoW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20392156862745098" green="0.35686274509803922" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="0.0"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

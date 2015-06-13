@@ -16,17 +16,18 @@
 
 @implementation NewsgroupTVC
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewDidLoad
+{
+  [super viewDidLoad];
 
   self.newsgroups = [[NSMutableArray alloc] init];
   [self getNewsgroups];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+  // Uncomment the following line to preserve selection between presentations.
+  // self.clearsSelectionOnViewWillAppear = NO;
+
+  // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,14 +100,14 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+  return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.newsgroups count];
+  return [self.newsgroups count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,6 +117,13 @@
   Newsgroup* newsgroup = [self.newsgroups objectAtIndex:indexPath.row];
   [cell.textLabel setText:[newsgroup group_name]];
   [cell.detailTextLabel setText:[NSString stringWithFormat:@"%d news", [newsgroup topic_nb]]];
+  UIColor* color = [UIColor colorWithRed:210/255.0 green:56/255.0 blue:56/255.0 alpha:1];
+  cell.contentView.backgroundColor = color;
+  cell.textLabel.backgroundColor = color;
+  cell.detailTextLabel.backgroundColor = color;
+
+  cell.textLabel.textColor = [UIColor whiteColor];
+  cell.detailTextLabel.textColor = [UIColor whiteColor];
 
   return cell;
 }
