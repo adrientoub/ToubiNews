@@ -97,7 +97,7 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" calendarEvent="YES"/>
                             </webView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="DDt-hE-WaY" secondAttribute="bottom" id="2nJ-ec-Mug"/>
                             <constraint firstAttribute="trailing" secondItem="DDt-hE-WaY" secondAttribute="trailing" id="3u5-sF-fyf"/>
@@ -260,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdw-Bo-g9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2006" y="2266"/>
+            <point key="canvasLocation" x="2026" y="1530"/>
         </scene>
         <!--Post-->
         <scene sceneID="YmG-YV-cYv">
@@ -283,7 +283,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnK-rp-LO1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1194" y="2266"/>
+            <point key="canvasLocation" x="1200" y="1530"/>
         </scene>
     </scenes>
     <resources>
