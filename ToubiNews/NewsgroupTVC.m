@@ -155,15 +155,25 @@
 
 -(UIColor*)backgroundColorForSelectedCellAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-  return [UIColor colorWithRed:61/255.0 green:166/255.0 blue:237/255.0 alpha:1];
+  int red = 245;
+  int green = 138;
+  int blue = 67;
+  return [UIColor colorWithRed: red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
 }
 
 -(UIColor*)backgroundColorForCellAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
   CGFloat ratio = (1. * indexPath.row) / [self.newsgroups count];
-  CGFloat red = (ratio * 45 + 210.0) / 255.;
-  CGFloat green = (ratio * 144. + 56.) / 255.;
-  CGFloat blue = (ratio * -56. + 56.) / 255.;
+  CGFloat upRed = 2.;
+  CGFloat downRed = 116.;
+  CGFloat upGreen = 94.;
+  CGFloat downGreen = 205.;
+  CGFloat upBlue = 146.;
+  CGFloat downBlue = 250.;
+
+  CGFloat red = (ratio * (downRed - upRed) + upRed) / 255.;
+  CGFloat green = (ratio * (downGreen - upGreen) + upGreen) / 255.;
+  CGFloat blue = (ratio * (downBlue - upBlue) + upBlue) / 255.;
   return [UIColor colorWithRed:red green:green blue:blue alpha:1];
 }
 
