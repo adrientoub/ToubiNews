@@ -121,9 +121,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="dgl-7r-BHD">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Author</string>
+                                <string>Content</string>
+                            </scopeButtonTitles>
+                            <connections>
+                                <outlet property="delegate" destination="orO-7y-Dxa" id="xO3-RX-GOH"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="newsgroupCell" textLabel="17r-uX-FKL" detailTextLabel="Oxd-H8-7H1" style="IBUITableViewCellStyleValue1" id="tp0-on-YRr">
-                                <rect key="frame" x="0.0" y="86" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="130" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tp0-on-YRr" id="QP2-S5-lzh">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -156,8 +169,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Newsgroups" id="hgk-TH-ANS"/>
+                    <connections>
+                        <outlet property="searchBar" destination="dgl-7r-BHD" id="Qhu-xZ-aTA"/>
+                        <outlet property="searchDisplayController" destination="WBE-JX-DpN" id="GDw-O0-ehi"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="accessNewsDetail" id="16F-jM-5oD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UoT-HL-KaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="WBE-JX-DpN">
+                    <connections>
+                        <outlet property="delegate" destination="orO-7y-Dxa" id="BDR-hU-yrJ"/>
+                        <outlet property="searchBar" destination="dgl-7r-BHD" id="ZJG-up-Tm8"/>
+                        <outlet property="searchContentsController" destination="orO-7y-Dxa" id="0Ez-PS-xPe"/>
+                        <outlet property="searchResultsDataSource" destination="orO-7y-Dxa" id="qbR-Jj-wV0"/>
+                        <outlet property="searchResultsDelegate" destination="orO-7y-Dxa" id="n8S-XW-bH3"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2026" y="653"/>
         </scene>
@@ -311,11 +338,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Coming Soon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ft7-yN-s7D">
-                                <rect key="frame" x="248" y="289" width="105" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="105" id="hEs-ED-tGB"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Coming Soon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ft7-yN-s7D">
+                                <rect key="frame" x="247" y="290" width="105" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -323,8 +347,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ft7-yN-s7D" firstAttribute="leading" secondItem="B0k-Ta-JBl" secondAttribute="leading" constant="10" id="LZZ-iY-f4Q"/>
-                            <constraint firstAttribute="trailing" secondItem="ft7-yN-s7D" secondAttribute="trailing" constant="10" id="QsG-AK-TIU"/>
+                            <constraint firstItem="ft7-yN-s7D" firstAttribute="centerY" secondItem="B0k-Ta-JBl" secondAttribute="centerY" id="Hd2-aa-utS"/>
+                            <constraint firstItem="ft7-yN-s7D" firstAttribute="centerX" secondItem="B0k-Ta-JBl" secondAttribute="centerX" id="JIp-hS-ejm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="dhR-Re-OxH"/>
@@ -361,6 +385,6 @@
         <image name="TabBarNews.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pdv-tW-M7g"/>
+        <segue reference="16F-jM-5oD"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,6 +9,8 @@
 #import "NewsgroupTVC.h"
 #import "Newsgroup.h"
 #import "NewsTVC.h"
+#import "News.h"
+#import "NewsDetailVC.h"
 
 @interface NewsgroupTVC ()
 
@@ -21,6 +23,10 @@
   [super viewDidLoad];
 
   self.newsgroups = [[NSMutableArray alloc] init];
+  self.searchArray = [[NSMutableArray alloc] init];
+
+  self.tableView.contentOffset = CGPointMake(0, self.searchBar.frame.size.height - self.tableView.contentOffset.y);
+
   [self getNewsgroups];
 
   // Uncomment the following line to preserve selection between presentations.
@@ -38,9 +44,28 @@
 - (void)displayError
 {}
 
+- (void)getNews:(NSString*)term withScope:(NSString*)scope
+{
+  NSString* strURL;
+  if ([scope isEqual: @"Title"])
+    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&title", term];
+  else if ([scope isEqual: @"Author"])
+    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&author", term];
+  else
+    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&content", term];
+
+  [self loadJSON:strURL isSearch:YES];
+}
+
 - (void)getNewsgroups
 {
   NSString* strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/news.epita.fr"];
+
+  [self loadJSON:strURL isSearch:NO];
+}
+
+-(void)loadJSON:(NSString*)strURL isSearch:(BOOL)search
+{
   NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:strURL]];
   NSURLSession *session = [NSURLSession sharedSession];
   [[session dataTaskWithRequest:request completionHandler:^(NSData *data,
@@ -52,20 +77,14 @@
       {
         NSArray *arrayJson = [NSJSONSerialization JSONObjectWithData: data
                                                              options: NSJSONReadingMutableContainers error: &jsonError];
-        if ([arrayJson count] == 0)
+
+        if (!jsonError)
         {
-          [self displayError];
+          [self fetchDatas:arrayJson isSearch:search];
         }
         else
         {
-          if (!jsonError)
-          {
-            [self fetchDatas:arrayJson];
-          }
-          else
-          {
-            NSLog(@"json convertion error");
-          }
+          NSLog(@"json convertion error");
         }
       }
       else
@@ -75,11 +94,32 @@
     }] resume];
 }
 
-- (void)fetchDatas:(NSArray*)jsonArray
+- (void)parseNews:(NSArray*)jsonArray
+{
+  [self.searchArray removeAllObjects];
+  for (NSDictionary* newsDico in jsonArray)
+  {
+    News* newsTmp = [[News alloc] init];
+    newsTmp.iId = [[newsDico objectForKey:@"id"] intValue];
+    newsTmp.uid = [newsDico objectForKey:@"uid"];
+    newsTmp.subject = [newsDico objectForKey:@"subject"];
+    newsTmp.author = [newsDico objectForKey:@"author"];
+    newsTmp.creation_date = [newsDico objectForKey:@"creation_date"];
+
+    [self.searchArray addObject:newsTmp];
+  }
+}
+
+- (void)fetchDatas:(NSArray*)jsonArray isSearch:(BOOL)search
 {
   NSLog(@"JSON: %@", jsonArray);
-  [self parseNewsgroups:jsonArray];
+  if (search)
+    [self parseNews:jsonArray];
+  else
+    [self parseNewsgroups:jsonArray];
   dispatch_async(dispatch_get_main_queue(), ^{
+    if (search)
+      [self.searchDisplayController.searchResultsTableView reloadData];
     [self.tableView reloadData];
   });
 }
@@ -107,7 +147,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return [self.newsgroups count];
+  if (tableView == self.tableView)
+    return [self.newsgroups count];
+  else
+    return [self.searchArray count];
 }
 
 -(UIColor*)backgroundColorForSelectedCellAtIndexPath:(nonnull NSIndexPath *)indexPath
@@ -124,14 +167,33 @@
   return [UIColor colorWithRed:red green:green blue:blue alpha:1];
 }
 
+-(void)searchDisplayControllerWillBeginSearch:(nonnull UISearchDisplayController *)controller
+{
+  [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"NewsgroupCell"
+                                                                                  bundle:[NSBundle mainBundle]]
+                                            forCellReuseIdentifier:@"newsgroupCell"];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsgroupCell"
                                                           forIndexPath:indexPath];
 
-  Newsgroup* newsgroup = [self.newsgroups objectAtIndex:indexPath.row];
-  [cell.textLabel setText:[newsgroup group_name]];
-  [cell.detailTextLabel setText:[NSString stringWithFormat:@"%d news", [newsgroup topic_nb]]];
+  if (tableView == self.tableView)
+  {
+    Newsgroup* newsgroup = [self.newsgroups objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[newsgroup group_name]];
+    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%d news", [newsgroup topic_nb]]];
+  }
+  else
+  {
+    if ([self.searchArray count] > indexPath.row)
+    {
+      News* news = [self.searchArray objectAtIndex:indexPath.row];
+      [cell.textLabel setText: [news subject]];
+      [cell.detailTextLabel setText: [news author]];
+    }
+  }
 
   UIColor* color = [self backgroundColorForCellAtIndexPath: indexPath];
   cell.contentView.backgroundColor = color;
@@ -191,11 +253,20 @@
 {
   // Get the new view controller using [segue destinationViewController].
   // Pass the selected object to the new view controller.
-  NewsTVC* news = [segue destinationViewController];
-  NSIndexPath* index = [self.tableView indexPathForCell:sender];
-  Newsgroup* newsgroup = [self.newsgroups objectAtIndex: index.row];
-  [news setNewsgroup: [newsgroup group_name]];
-  [news setTopicNb: [newsgroup topic_nb]];
+  if (self.searchDisplayController.active)
+  {
+    NewsDetailVC* detail = [segue destinationViewController];
+    NSIndexPath* index = [self.searchDisplayController.searchResultsTableView indexPathForCell:sender];
+    [detail setNews:[self.searchArray objectAtIndex: index.row]];
+  }
+  else
+  {
+    NewsTVC* news = [segue destinationViewController];
+    NSIndexPath* index = [self.tableView indexPathForCell:sender];
+    Newsgroup* newsgroup = [self.newsgroups objectAtIndex: index.row];
+    [news setNewsgroup: [newsgroup group_name]];
+    [news setTopicNb: [newsgroup topic_nb]];
+  }
 }
 
 @end

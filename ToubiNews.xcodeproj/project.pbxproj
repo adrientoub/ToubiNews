@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A6AA4561B2CA97400F7073D /* NewsgroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6AA4551B2CA97400F7073D /* NewsgroupCell.xib */; };
 		7AC72C9B1B25E87200BF7B18 /* NewsgroupTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC72C9A1B25E87200BF7B18 /* NewsgroupTVC.m */; };
 		7AC72C9E1B25E8E300BF7B18 /* Newsgroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC72C9D1B25E8E300BF7B18 /* Newsgroup.m */; };
 		7AE052311B287C3400E4AD73 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE052301B287C3400E4AD73 /* Cell.xib */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A6AA4551B2CA97400F7073D /* NewsgroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsgroupCell.xib; sourceTree = "<group>"; };
 		7AC72C991B25E87200BF7B18 /* NewsgroupTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsgroupTVC.h; sourceTree = "<group>"; };
 		7AC72C9A1B25E87200BF7B18 /* NewsgroupTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsgroupTVC.m; sourceTree = "<group>"; };
 		7AC72C9C1B25E8E300BF7B18 /* Newsgroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Newsgroup.h; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		ACB250E11B25A49000998A65 /* ToubiNews */ = {
 			isa = PBXGroup;
 			children = (
+				7A6AA4551B2CA97400F7073D /* NewsgroupCell.xib */,
 				ACB250E61B25A49000998A65 /* AppDelegate.h */,
 				ACB251081B25A56100998A65 /* News.h */,
 				ACB251091B25A56100998A65 /* News.m */,
@@ -236,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A6AA4561B2CA97400F7073D /* NewsgroupCell.xib in Resources */,
 				7AE052351B289EE800E4AD73 /* TabBarNews.png in Resources */,
 				ACB250EE1B25A49000998A65 /* Main.storyboard in Resources */,
 				7AE052311B287C3400E4AD73 /* Cell.xib in Resources */,
