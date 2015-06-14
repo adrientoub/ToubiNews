@@ -93,7 +93,7 @@
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDt-hE-WaY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" calendarEvent="YES"/>
                             </webView>
                         </subviews>
@@ -192,7 +192,7 @@
         <scene sceneID="G4q-5M-aDM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OOP-eH-fYd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Newsgroups" image="TabBarNews.png" id="AZk-P0-Lhz"/>
+                    <tabBarItem key="tabBarItem" title="Newsgroups" image="News.png" id="AZk-P0-Lhz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="uwP-bQ-ZoW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -266,7 +266,7 @@
         <scene sceneID="YmG-YV-cYv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lrx-FB-LQU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Post" id="I5N-Yh-8K9"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="Add.png" id="I5N-Yh-8K9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="XUo-eX-vgk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -287,7 +287,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TabBarNews.png" width="32" height="32"/>
+        <image name="Add.png" width="32" height="32"/>
+        <image name="News.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="16F-jM-5oD"/>
