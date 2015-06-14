@@ -192,7 +192,13 @@
         <scene sceneID="G4q-5M-aDM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OOP-eH-fYd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Newsgroups" image="News.png" id="AZk-P0-Lhz"/>
+                    <tabBarItem key="tabBarItem" title="Newsgroups" image="News.png" id="AZk-P0-Lhz">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.51372549019607838" green="0.90980392156862744" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="uwP-bQ-ZoW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -201,6 +207,11 @@
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="0.0"/>
                         </textAttributes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.51372549019607838" green="0.90980392156862744" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -266,7 +277,13 @@
         <scene sceneID="YmG-YV-cYv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lrx-FB-LQU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Post" image="Add.png" id="I5N-Yh-8K9"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="Add.png" id="I5N-Yh-8K9">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.23921568627450981" green="0.90980392156862744" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="XUo-eX-vgk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -287,8 +304,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add.png" width="32" height="32"/>
-        <image name="News.png" width="32" height="32"/>
+        <image name="Add.png" width="75" height="75"/>
+        <image name="News.png" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="16F-jM-5oD"/>
