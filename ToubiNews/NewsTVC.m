@@ -104,21 +104,17 @@
 
 -(UIColor*)backgroundColorForCellAtIndexPath:(nonnull NSIndexPath *)indexPath withTableView:(UITableView*)tableView
 {
-  CGFloat ratio;
-  if (tableView == self.tableView)
-    ratio = (1. * indexPath.row) / self.topicNb;
-  else
-    ratio = (1. * indexPath.row) / [self.searchArray count];
   CGFloat upRed = 2.;
-  CGFloat downRed = 116.;
+  CGFloat downRed = 31.;
   CGFloat upGreen = 94.;
-  CGFloat downGreen = 205.;
+  CGFloat downGreen = 122.;
   CGFloat upBlue = 146.;
-  CGFloat downBlue = 250.;
+  CGFloat downBlue = 172.;
+  NSInteger row = indexPath.row;
 
-  CGFloat red = (ratio * (downRed - upRed) + upRed) / 255.;
-  CGFloat green = (ratio * (downGreen - upGreen) + upGreen) / 255.;
-  CGFloat blue = (ratio * (downBlue - upBlue) + upBlue) / 255.;
+  CGFloat red = (row % 2 == 0 ? upRed : downRed) / 255.;
+  CGFloat green = (row % 2 == 0 ? upGreen : downGreen) / 255.;
+  CGFloat blue = (row % 2 == 0 ? upBlue : downBlue) / 255.;
   return [UIColor colorWithRed:red green:green blue:blue alpha:1];
 }
 
