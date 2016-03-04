@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--News-->
+        <!--NewsTVC-->
         <scene sceneID="UlM-55-H3Q">
             <objects>
-                <tableViewController id="1Cw-7c-ZYV" customClass="NewsTVC" sceneMemberID="viewController">
+                <tableViewController title="NewsTVC" id="1Cw-7c-ZYV" customClass="NewsTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ev2-v8-Rpx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="2732" y="653"/>
         </scene>
-        <!--News DetailVC-->
+        <!--NewsDetailVC-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="NewsDetailVC" sceneMemberID="viewController">
+                <viewController title="NewsDetailVC" id="vXZ-lx-hvc" customClass="NewsDetailVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -113,10 +113,10 @@
             </objects>
             <point key="canvasLocation" x="3442" y="653"/>
         </scene>
-        <!--Newsgroups-->
+        <!--NewsgroupsTVC-->
         <scene sceneID="uEC-MF-pb6">
             <objects>
-                <tableViewController id="orO-7y-Dxa" customClass="NewsgroupTVC" sceneMemberID="viewController">
+                <tableViewController title="NewsgroupsTVC" id="orO-7y-Dxa" customClass="NewsgroupTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hQy-OX-lra">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,10 +188,10 @@
             </objects>
             <point key="canvasLocation" x="2026" y="653"/>
         </scene>
-        <!--Newsgroups-->
+        <!--NewsgroupsNC-->
         <scene sceneID="G4q-5M-aDM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OOP-eH-fYd" sceneMemberID="viewController">
+                <navigationController title="NewsgroupsNC" automaticallyAdjustsScrollViewInsets="NO" id="OOP-eH-fYd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Newsgroups" image="News.png" id="AZk-P0-Lhz">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -203,9 +203,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="uwP-bQ-ZoW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.20392156862745098" green="0.35686274509803922" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.16862745098039217" green="0.2627450980392157" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         </textAttributes>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -222,10 +222,10 @@
             </objects>
             <point key="canvasLocation" x="1200" y="653"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--TabBarC-->
         <scene sceneID="PiQ-ez-elo">
             <objects>
-                <tabBarController id="nkf-7C-crC" sceneMemberID="viewController">
+                <tabBarController title="TabBarC" id="nkf-7C-crC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="0Bc-jg-gS5"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="4uK-KD-AdX">
@@ -244,10 +244,10 @@
             </objects>
             <point key="canvasLocation" x="262" y="1109"/>
         </scene>
-        <!--Post-->
+        <!--PostVC-->
         <scene sceneID="GnP-Kj-XHP">
             <objects>
-                <viewController id="W9z-TT-pA0" sceneMemberID="viewController">
+                <viewController title="PostVC" id="W9z-TT-pA0" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N1n-aN-I83"/>
                         <viewControllerLayoutGuide type="bottom" id="xjO-hf-K63"/>
@@ -256,14 +256,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Coming Soon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ft7-yN-s7D">
-                                <rect key="frame" x="247" y="290" width="105" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ft7-yN-s7D">
+                                <rect key="frame" x="248" y="290" width="103" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0078431372549019607" green="0.36862745098039218" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ft7-yN-s7D" firstAttribute="centerY" secondItem="B0k-Ta-JBl" secondAttribute="centerY" id="Hd2-aa-utS"/>
                             <constraint firstItem="ft7-yN-s7D" firstAttribute="centerX" secondItem="B0k-Ta-JBl" secondAttribute="centerX" id="JIp-hS-ejm"/>
@@ -275,10 +275,10 @@
             </objects>
             <point key="canvasLocation" x="2026" y="1530"/>
         </scene>
-        <!--Recent-->
+        <!--RecentNewsTVC-->
         <scene sceneID="3f5-gk-9sK">
             <objects>
-                <tableViewController id="DDD-Va-1sw" customClass="RecentNewsTVC" sceneMemberID="viewController">
+                <tableViewController title="RecentNewsTVC" id="DDD-Va-1sw" customClass="RecentNewsTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bgL-00-TKU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -323,10 +323,10 @@
             </objects>
             <point key="canvasLocation" x="2026" y="2310"/>
         </scene>
-        <!--Post-->
+        <!--PostNC-->
         <scene sceneID="YmG-YV-cYv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lrx-FB-LQU" sceneMemberID="viewController">
+                <navigationController title="PostNC" automaticallyAdjustsScrollViewInsets="NO" id="lrx-FB-LQU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Post" image="Add.png" id="I5N-Yh-8K9">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -340,7 +340,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.20392156862745098" green="0.35686274509803922" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -352,10 +352,10 @@
             </objects>
             <point key="canvasLocation" x="1200" y="1530"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--RecentNC-->
         <scene sceneID="A7i-M6-R34">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jF1-mu-RNV" sceneMemberID="viewController">
+                <navigationController title="RecentNC" automaticallyAdjustsScrollViewInsets="NO" id="jF1-mu-RNV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="recents" id="XbX-hY-LyJ">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -368,6 +368,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.16862745098039217" green="0.2627450980392157" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        </textAttributes>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="0.51372549019607838" green="0.90980392156862744" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -375,9 +378,6 @@
                         </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="tintValue" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="DDD-Va-1sw" kind="relationship" relationship="rootViewController" id="4al-9h-IZi"/>
                     </connections>
@@ -392,6 +392,6 @@
         <image name="News.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Oca-xw-urc"/>
+        <segue reference="16F-jM-5oD"/>
     </inferredMetricsTieBreakers>
 </document>
