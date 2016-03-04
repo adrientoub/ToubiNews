@@ -236,8 +236,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="OOP-eH-fYd" kind="relationship" relationship="viewControllers" id="om6-De-lfk"/>
-                        <segue destination="lrx-FB-LQU" kind="relationship" relationship="viewControllers" id="QSU-2r-F01"/>
                         <segue destination="jF1-mu-RNV" kind="relationship" relationship="viewControllers" id="Zdo-O0-W5x"/>
+                        <segue destination="lrx-FB-LQU" kind="relationship" relationship="viewControllers" id="QSU-2r-F01"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDW-CN-92x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -338,7 +338,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="XUo-eX-vgk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.20392156862745098" green="0.35686274509803922" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.16862745098039217" green="0.2627450980392157" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         </textAttributes>
@@ -392,6 +392,6 @@
         <image name="News.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="16F-jM-5oD"/>
+        <segue reference="KlJ-Lr-wcy"/>
     </inferredMetricsTieBreakers>
 </document>
