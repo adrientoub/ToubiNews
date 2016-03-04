@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nkf-7C-crC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nkf-7C-crC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--News-->
@@ -203,7 +203,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="uwP-bQ-ZoW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.20392156862745098" green="0.35686274509803922" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.20392156862745098" green="0.35686274509803922" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="0.0"/>
                         </textAttributes>
@@ -226,6 +226,7 @@
         <scene sceneID="PiQ-ez-elo">
             <objects>
                 <tabBarController id="nkf-7C-crC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0Bc-jg-gS5"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="4uK-KD-AdX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -236,6 +237,7 @@
                     <connections>
                         <segue destination="OOP-eH-fYd" kind="relationship" relationship="viewControllers" id="om6-De-lfk"/>
                         <segue destination="lrx-FB-LQU" kind="relationship" relationship="viewControllers" id="QSU-2r-F01"/>
+                        <segue destination="jF1-mu-RNV" kind="relationship" relationship="viewControllers" id="Zdo-O0-W5x"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDW-CN-92x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -273,6 +275,54 @@
             </objects>
             <point key="canvasLocation" x="2026" y="1530"/>
         </scene>
+        <!--Recent-->
+        <scene sceneID="3f5-gk-9sK">
+            <objects>
+                <tableViewController id="DDD-Va-1sw" customClass="RecentNewsTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bgL-00-TKU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultCell" textLabel="4ON-3D-5Ai" detailTextLabel="lvy-na-cw0" style="IBUITableViewCellStyleSubtitle" id="lII-cx-vpp">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lII-cx-vpp" id="eSU-XF-teg">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4ON-3D-5Ai">
+                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lvy-na-cw0">
+                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DDD-Va-1sw" id="m8G-EX-QVe"/>
+                            <outlet property="delegate" destination="DDD-Va-1sw" id="yyX-Uf-lwe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Recent" id="YgR-Vd-Is8"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="recentNewsDetailSegue" id="Oca-xw-urc"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DTt-md-5by" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2026" y="2310"/>
+        </scene>
         <!--Post-->
         <scene sceneID="YmG-YV-cYv">
             <objects>
@@ -302,12 +352,46 @@
             </objects>
             <point key="canvasLocation" x="1200" y="1530"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="A7i-M6-R34">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jF1-mu-RNV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="XbX-hY-LyJ">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.23921568627450979" green="0.90980392156862744" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="eXu-24-6wn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.16862745098039217" green="0.2627450980392157" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.51372549019607838" green="0.90980392156862744" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="tintValue" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="DDD-Va-1sw" kind="relationship" relationship="rootViewController" id="4al-9h-IZi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QfO-XK-zwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1200" y="2310"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Add.png" width="75" height="75"/>
-        <image name="News.png" width="50" height="50"/>
+        <image name="Add.png" width="25" height="25"/>
+        <image name="News.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="16F-jM-5oD"/>
+        <segue reference="Oca-xw-urc"/>
     </inferredMetricsTieBreakers>
 </document>

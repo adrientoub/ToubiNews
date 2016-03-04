@@ -7,6 +7,7 @@
 //
 
 #import "NewsDetailVC.h"
+#import "ApiConstants.h"
 
 @interface NewsDetailVC ()
 
@@ -38,7 +39,7 @@
 
 - (void)getNewsDetails
 {
-  NSString* strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/topic/%d", [self.news iId]];
+  NSString* strURL = [NSString stringWithFormat:@"%@%@/%d", kAPI_BASE_URL, kAPI_TOPIC, [self.news iId]];
   NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:strURL]];
   NSURLSession *session = [NSURLSession sharedSession];
   [[session dataTaskWithRequest:request completionHandler:^(NSData *data,

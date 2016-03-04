@@ -9,6 +9,7 @@
 #import "SearchTVC.h"
 #import "News.h"
 #import "NewsDetailVC.h"
+#import "ApiConstants.h"
 
 @interface SearchTVC ()
 
@@ -126,11 +127,11 @@
 {
   NSString* strURL;
   if ([scope isEqual: @"Title"])
-    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&title", term];
+    strURL = [NSString stringWithFormat:@"%@%@?term=%@&title", kAPI_BASE_URL, kAPI_SEARCH, term];
   else if ([scope isEqual: @"Author"])
-    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&author", term];
+    strURL = [NSString stringWithFormat:@"%@%@?term=%@&author", kAPI_BASE_URL, kAPI_SEARCH, term];
   else
-    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&content", term];
+    strURL = [NSString stringWithFormat:@"%@%@?term=%@&content", kAPI_BASE_URL, kAPI_SEARCH, term];
 
   NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:strURL]];
   NSURLSession *session = [NSURLSession sharedSession];

@@ -11,6 +11,7 @@
 #import "NewsTVC.h"
 #import "News.h"
 #import "NewsDetailVC.h"
+#import "ApiConstants.h"
 
 @interface NewsgroupTVC ()
 
@@ -48,18 +49,18 @@
 {
   NSString* strURL;
   if ([scope isEqual: @"Title"])
-    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&title", term];
+    strURL = [NSString stringWithFormat:@"%@%@?term=%@&title", kAPI_BASE_URL, kAPI_SEARCH, term];
   else if ([scope isEqual: @"Author"])
-    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&author", term];
+    strURL = [NSString stringWithFormat:@"%@%@?term=%@&author", kAPI_BASE_URL, kAPI_SEARCH, term];
   else
-    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/search?term=%@&content", term];
+    strURL = [NSString stringWithFormat:@"%@%@?term=%@&content", kAPI_BASE_URL, kAPI_SEARCH, term];
 
   [self loadJSON:strURL isSearch:YES];
 }
 
 - (void)getNewsgroups
 {
-  NSString* strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/news.epita.fr"];
+  NSString* strURL = [NSString stringWithFormat:@"%@/%@", kAPI_BASE_URL, kNG_HOST];
 
   [self loadJSON:strURL isSearch:NO];
 }

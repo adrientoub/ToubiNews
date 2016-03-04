@@ -9,6 +9,7 @@
 #import "NewsTVC.h"
 #import "NewsDetailVC.h"
 #import "News.h"
+#import "ApiConstants.h"
 
 @interface NewsTVC ()
 
@@ -49,11 +50,11 @@
   self.updating = YES;
   NSString* strURL;
   if ([self.newsArray count] == 0)
-    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/news.epita.fr/%@?limit=25", self.newsgroup];
+    strURL = [NSString stringWithFormat:@"%@/%@/%@?limit=25", kAPI_BASE_URL, kNG_HOST, self.newsgroup];
   else
   {
     NSString* date = [[self.newsArray objectAtIndex:[self.newsArray count] - 1] creation_date];
-    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/news.epita.fr/%@?limit=25&start_date=%@%%2B0000", self.newsgroup, date];
+    strURL = [NSString stringWithFormat:@"%@/%@/%@?limit=25&start_date=%@%%2B0000", kAPI_BASE_URL, kNG_HOST, self.newsgroup, date];
   }
 
   [self loadJSON:strURL isSearch:NO];
@@ -205,11 +206,11 @@
 {
   NSString* strURL;
   if ([scope isEqual: @"Title"])
-    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/news.epita.fr/%@/search?term=%@&title", self.newsgroup, term];
+    strURL = [NSString stringWithFormat:@"%@/%@/%@/search?term=%@&title", kAPI_BASE_URL, kNG_HOST, self.newsgroup, term];
   else if ([scope isEqual: @"Author"])
-    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/news.epita.fr/%@/search?term=%@&author", self.newsgroup, term];
+    strURL = [NSString stringWithFormat:@"%@/%@/%@/search?term=%@&author", kAPI_BASE_URL, kNG_HOST, self.newsgroup, term];
   else
-    strURL = [NSString stringWithFormat:@"https://42portal.com/ng-notifier/api/news.epita.fr/%@/search?term=%@&content", self.newsgroup, term];
+    strURL = [NSString stringWithFormat:@"%@/%@/%@/search?term=%@&content", kAPI_BASE_URL, kNG_HOST, self.newsgroup, term];
 
   [self loadJSON:strURL isSearch:YES];
 }
