@@ -105,6 +105,7 @@
                             <constraint firstItem="DDt-hE-WaY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="hg0-No-Eem"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="News" id="8O3-yG-u6q"/>
                     <connections>
                         <outlet property="newsContent" destination="DDt-hE-WaY" id="bHb-Nj-KA6"/>
                     </connections>

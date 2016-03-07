@@ -40,7 +40,7 @@
     return;
   self.updating = YES;
   NSString* strURL;
-  strURL = [NSString stringWithFormat:@"%@/%@/last?limit=25", kAPI_BASE_URL, kNG_HOST];
+  strURL = [NSString stringWithFormat:@"%@/%@/last?limit=%d", kAPI_BASE_URL, kNG_HOST, kRECENT_COUNT];
 
   [self loadJSON:strURL];
 }

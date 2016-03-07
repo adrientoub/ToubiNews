@@ -12,3 +12,5 @@ NSString* const kAPI_BASE_URL = @"https://ng-notifier.42portal.com/api";
 NSString* const kAPI_SEARCH = @"/search";
 NSString* const kAPI_TOPIC = @"/topic";
 NSString* const kNG_HOST = @"news.epita.fr";
+
+int const kRECENT_COUNT = 50;
