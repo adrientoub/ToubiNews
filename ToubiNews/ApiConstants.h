@@ -18,4 +18,9 @@ extern NSString* const kNG_HOST;
 // Moving constants
 extern int const kRECENT_COUNT;
 
+// Colors
+extern int const kSELECTED_RED;
+extern int const kSELECTED_GREEN;
+extern int const kSELECTED_BLUE;
+
 #endif /* ApiConstants_h */

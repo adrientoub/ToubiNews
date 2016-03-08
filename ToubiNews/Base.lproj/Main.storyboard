@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
         <!--NewsTVC-->
@@ -51,7 +52,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="newsDetailSegue" id="KlJ-Lr-wcy"/>
+                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="newsDetailSegue" id="KlJ-Lr-wcy">
+                                        <segue key="commit" inheritsFrom="parent" id="usu-6P-DAj"/>
+                                        <segue key="preview" inheritsFrom="commit" id="igI-da-CwR"/>
+                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -160,7 +164,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="1Cw-7c-ZYV" kind="show" id="ZVl-1E-pP9"/>
+                                    <segue destination="1Cw-7c-ZYV" kind="show" id="ZVl-1E-pP9">
+                                        <segue key="commit" inheritsFrom="parent" id="frM-Ny-qZv"/>
+                                        <segue key="preview" inheritsFrom="commit" id="lRO-wo-biG"/>
+                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -280,27 +287,27 @@
         <scene sceneID="3f5-gk-9sK">
             <objects>
                 <tableViewController title="RecentNewsTVC" id="DDD-Va-1sw" customClass="RecentNewsTVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bgL-00-TKU">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="bgL-00-TKU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.42352941176470588" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultCell" textLabel="4ON-3D-5Ai" detailTextLabel="lvy-na-cw0" style="IBUITableViewCellStyleSubtitle" id="lII-cx-vpp">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultCell" textLabel="4ON-3D-5Ai" detailTextLabel="lvy-na-cw0" rowHeight="55" style="IBUITableViewCellStyleSubtitle" id="lII-cx-vpp">
+                                <rect key="frame" x="0.0" y="92" width="600" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lII-cx-vpp" id="eSU-XF-teg">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4ON-3D-5Ai">
-                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <rect key="frame" x="15" y="10" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lvy-na-cw0">
-                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lvy-na-cw0">
+                                            <rect key="frame" x="15" y="30" width="41" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -308,17 +315,21 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="recentNewsDetailSegue" id="cE7-bH-BNv">
+                                        <segue key="commit" inheritsFrom="parent" id="0j6-Gf-3wc"/>
+                                        <segue key="preview" inheritsFrom="commit" id="bFh-FX-a0h"/>
+                                    </segue>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="DDD-Va-1sw" id="m8G-EX-QVe"/>
                             <outlet property="delegate" destination="DDD-Va-1sw" id="yyX-Uf-lwe"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recent" id="YgR-Vd-Is8"/>
-                    <connections>
-                        <segue destination="vXZ-lx-hvc" kind="show" identifier="recentNewsDetailSegue" id="Oca-xw-urc"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DTt-md-5by" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -393,6 +404,7 @@
         <image name="News.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KlJ-Lr-wcy"/>
+        <segue reference="ZVl-1E-pP9"/>
+        <segue reference="cE7-bH-BNv"/>
     </inferredMetricsTieBreakers>
 </document>

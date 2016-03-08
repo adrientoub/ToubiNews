@@ -40,7 +40,7 @@
     return;
   self.updating = YES;
   NSString* strURL;
-  strURL = [NSString stringWithFormat:@"%@/%@/last?limit=%d", kAPI_BASE_URL, kNG_HOST, kRECENT_COUNT];
+  strURL = [NSString stringWithFormat:@"%@/%@/last?limit=%d&names", kAPI_BASE_URL, kNG_HOST, kRECENT_COUNT];
 
   [self loadJSON:strURL];
 }
@@ -62,10 +62,10 @@
 
 -(UIColor*)backgroundColorForSelectedCellAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-  int red = 245;
-  int green = 138;
-  int blue = 67;
-  return [UIColor colorWithRed: red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
+  return [UIColor colorWithRed: kSELECTED_RED / 255.0
+                         green: kSELECTED_GREEN / 255.0
+                          blue: kSELECTED_BLUE / 255.0
+                         alpha: 1];
 }
 
 -(UIColor*)backgroundColorForCellAtIndexPath:(nonnull NSIndexPath *)indexPath withTableView:(UITableView*)tableView
@@ -98,7 +98,7 @@
   {
     News* news = [self.newsArray objectAtIndex:indexPath.row];
     [cell.textLabel setText: [news subject]];
-    [cell.detailTextLabel setText: [news author]];
+    [cell.detailTextLabel setText: [NSString stringWithFormat:@"%@\n%@", news.author, news.newsgroup]];
   }
 
   UIColor* color = [self backgroundColorForCellAtIndexPath: indexPath withTableView:tableView];
@@ -182,6 +182,7 @@
     newsTmp.subject = [newsDico objectForKey:@"subject"];
     newsTmp.author = [newsDico objectForKey:@"author"];
     newsTmp.creation_date = [newsDico objectForKey:@"creation_date"];
+    newsTmp.newsgroup = [newsDico objectForKey:@"groups"][0];
 
     [self.newsArray addObject:newsTmp];
   }

@@ -14,3 +14,7 @@ NSString* const kAPI_TOPIC = @"/topic";
 NSString* const kNG_HOST = @"news.epita.fr";
 
 int const kRECENT_COUNT = 50;
+
+int const kSELECTED_RED = 245;
+int const kSELECTED_GREEN = 138;
+int const kSELECTED_BLUE = 67;

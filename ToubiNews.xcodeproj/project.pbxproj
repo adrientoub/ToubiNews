@@ -44,7 +44,7 @@
 		7A7792C11C88E6EB009C3379 /* ApiConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiConstants.h; sourceTree = "<group>"; };
 		7A7792C21C88E782009C3379 /* ApiConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiConstants.m; sourceTree = "<group>"; };
 		7A7792C41C8914E7009C3379 /* RecentNewsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentNewsTVC.h; sourceTree = "<group>"; };
-		7A7792C51C8914E7009C3379 /* RecentNewsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentNewsTVC.m; sourceTree = "<group>"; };
+		7A7792C51C8914E7009C3379 /* RecentNewsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentNewsTVC.m; sourceTree = "<group>"; tabWidth = 2; };
 		7AC72C991B25E87200BF7B18 /* NewsgroupTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsgroupTVC.h; sourceTree = "<group>"; };
 		7AC72C9A1B25E87200BF7B18 /* NewsgroupTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsgroupTVC.m; sourceTree = "<group>"; };
 		7AC72C9C1B25E8E300BF7B18 /* Newsgroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Newsgroup.h; sourceTree = "<group>"; };
