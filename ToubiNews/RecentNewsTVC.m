@@ -101,7 +101,7 @@
     [cell.detailTextLabel setText: [NSString stringWithFormat:@"%@\n%@", news.author, news.newsgroup]];
   }
 
-  UIColor* color = [self backgroundColorForCellAtIndexPath: indexPath withTableView:tableView];
+  UIColor* color = [self backgroundColorForCellAtIndexPath:indexPath withTableView:tableView];
   cell.contentView.backgroundColor = color;
   cell.textLabel.backgroundColor = color;
   cell.detailTextLabel.backgroundColor = color;
@@ -186,13 +186,6 @@
 
     [self.newsArray addObject:newsTmp];
   }
-}
-
-
--(void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-  [self performSegueWithIdentifier:@"recentNewsDetailSegue"
-                            sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
 @end
