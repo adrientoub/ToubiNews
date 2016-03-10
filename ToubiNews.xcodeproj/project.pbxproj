@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A205C221C90FA0700A6BB34 /* PostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A205C211C90FA0700A6BB34 /* PostVC.m */; };
+		7A205C251C90FE1000A6BB34 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A205C241C90FE1000A6BB34 /* LoginVC.m */; };
 		7A6AA4561B2CA97400F7073D /* NewsgroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6AA4551B2CA97400F7073D /* NewsgroupCell.xib */; };
 		7A7792C31C88E782009C3379 /* ApiConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7792C21C88E782009C3379 /* ApiConstants.m */; };
 		7A7792C61C8914E7009C3379 /* RecentNewsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7792C51C8914E7009C3379 /* RecentNewsTVC.m */; };
@@ -40,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A205C201C90FA0700A6BB34 /* PostVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostVC.h; sourceTree = "<group>"; };
+		7A205C211C90FA0700A6BB34 /* PostVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostVC.m; sourceTree = "<group>"; };
+		7A205C231C90FE1000A6BB34 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		7A205C241C90FE1000A6BB34 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		7A6AA4551B2CA97400F7073D /* NewsgroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsgroupCell.xib; sourceTree = "<group>"; };
 		7A7792C11C88E6EB009C3379 /* ApiConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiConstants.h; sourceTree = "<group>"; };
 		7A7792C21C88E782009C3379 /* ApiConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiConstants.m; sourceTree = "<group>"; };
@@ -116,34 +122,38 @@
 		ACB250E11B25A49000998A65 /* ToubiNews */ = {
 			isa = PBXGroup;
 			children = (
-				7A6AA4551B2CA97400F7073D /* NewsgroupCell.xib */,
-				ACB250E61B25A49000998A65 /* AppDelegate.h */,
-				ACB251081B25A56100998A65 /* News.h */,
-				ACB251091B25A56100998A65 /* News.m */,
-				ACB2510A1B25A56100998A65 /* NewsDetailVC.h */,
-				ACB2510B1B25A56100998A65 /* NewsDetailVC.m */,
-				ACB2510C1B25A56100998A65 /* NewsTVC.h */,
-				7A7792C41C8914E7009C3379 /* RecentNewsTVC.h */,
-				7A7792C51C8914E7009C3379 /* RecentNewsTVC.m */,
-				ACB2510D1B25A56100998A65 /* NewsTVC.m */,
-				ACB250E71B25A49000998A65 /* AppDelegate.m */,
-				ACB250E91B25A49000998A65 /* ViewController.h */,
-				ACB250EA1B25A49000998A65 /* ViewController.m */,
-				ACB250EC1B25A49000998A65 /* Main.storyboard */,
 				7AFDB10F1B2E025800B9817E /* Add@2x.png */,
-				7AFDB1101B2E025800B9817E /* News@2x.png */,
-				ACB250EF1B25A49000998A65 /* Images.xcassets */,
-				ACB250F11B25A49000998A65 /* LaunchScreen.xib */,
-				ACB250E21B25A49000998A65 /* Supporting Files */,
-				7AC72C991B25E87200BF7B18 /* NewsgroupTVC.h */,
-				7AC72C9A1B25E87200BF7B18 /* NewsgroupTVC.m */,
-				7AC72C9C1B25E8E300BF7B18 /* Newsgroup.h */,
-				7AC72C9D1B25E8E300BF7B18 /* Newsgroup.m */,
-				7AE7E1B31B27405400CBB5B9 /* SearchTVC.h */,
-				7AE7E1B41B27405400CBB5B9 /* SearchTVC.m */,
-				7AE052301B287C3400E4AD73 /* Cell.xib */,
 				7A7792C11C88E6EB009C3379 /* ApiConstants.h */,
 				7A7792C21C88E782009C3379 /* ApiConstants.m */,
+				ACB250E61B25A49000998A65 /* AppDelegate.h */,
+				ACB250E71B25A49000998A65 /* AppDelegate.m */,
+				7AE052301B287C3400E4AD73 /* Cell.xib */,
+				ACB250EF1B25A49000998A65 /* Images.xcassets */,
+				ACB250F11B25A49000998A65 /* LaunchScreen.xib */,
+				7A205C231C90FE1000A6BB34 /* LoginVC.h */,
+				7A205C241C90FE1000A6BB34 /* LoginVC.m */,
+				ACB250EC1B25A49000998A65 /* Main.storyboard */,
+				ACB251081B25A56100998A65 /* News.h */,
+				ACB251091B25A56100998A65 /* News.m */,
+				7AFDB1101B2E025800B9817E /* News@2x.png */,
+				ACB2510A1B25A56100998A65 /* NewsDetailVC.h */,
+				ACB2510B1B25A56100998A65 /* NewsDetailVC.m */,
+				7AC72C9C1B25E8E300BF7B18 /* Newsgroup.h */,
+				7AC72C9D1B25E8E300BF7B18 /* Newsgroup.m */,
+				7A6AA4551B2CA97400F7073D /* NewsgroupCell.xib */,
+				7AC72C991B25E87200BF7B18 /* NewsgroupTVC.h */,
+				7AC72C9A1B25E87200BF7B18 /* NewsgroupTVC.m */,
+				ACB2510C1B25A56100998A65 /* NewsTVC.h */,
+				ACB2510D1B25A56100998A65 /* NewsTVC.m */,
+				7A205C201C90FA0700A6BB34 /* PostVC.h */,
+				7A205C211C90FA0700A6BB34 /* PostVC.m */,
+				7A7792C41C8914E7009C3379 /* RecentNewsTVC.h */,
+				7A7792C51C8914E7009C3379 /* RecentNewsTVC.m */,
+				7AE7E1B31B27405400CBB5B9 /* SearchTVC.h */,
+				7AE7E1B41B27405400CBB5B9 /* SearchTVC.m */,
+				ACB250E21B25A49000998A65 /* Supporting Files */,
+				ACB250E91B25A49000998A65 /* ViewController.h */,
+				ACB250EA1B25A49000998A65 /* ViewController.m */,
 			);
 			path = ToubiNews;
 			sourceTree = "<group>";
@@ -281,11 +291,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AC72C9E1B25E8E300BF7B18 /* Newsgroup.m in Sources */,
+				7A205C251C90FE1000A6BB34 /* LoginVC.m in Sources */,
 				ACB250EB1B25A49000998A65 /* ViewController.m in Sources */,
 				ACB250E81B25A49000998A65 /* AppDelegate.m in Sources */,
 				7A7792C61C8914E7009C3379 /* RecentNewsTVC.m in Sources */,
 				ACB250E51B25A49000998A65 /* main.m in Sources */,
 				7A7792C31C88E782009C3379 /* ApiConstants.m in Sources */,
+				7A205C221C90FA0700A6BB34 /* PostVC.m in Sources */,
 				ACB2510E1B25A56100998A65 /* News.m in Sources */,
 				ACB2510F1B25A56100998A65 /* NewsDetailVC.m in Sources */,
 				7AC72C9B1B25E87200BF7B18 /* NewsgroupTVC.m in Sources */,

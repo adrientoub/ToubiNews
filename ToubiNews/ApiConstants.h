@@ -13,7 +13,11 @@
 extern NSString* const kAPI_BASE_URL;
 extern NSString* const kAPI_SEARCH;
 extern NSString* const kAPI_TOPIC;
+extern NSString* const kAPI_LOGIN;
 extern NSString* const kNG_HOST;
+
+// API Key
+extern NSString* const kAPI_KEY;
 
 // Moving constants
 extern int const kRECENT_COUNT;
