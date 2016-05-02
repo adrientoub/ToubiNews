@@ -28,17 +28,29 @@
 - (IBAction)loginAction:(id)sender {
   [self.loginTextField resignFirstResponder];
   [self.passwordTextField resignFirstResponder];
-  [self login:self.loginTextField.text password:self.passwordTextField.text];
+  [self changeController];
+//  [self login:self.loginTextField.text password:self.passwordTextField.text];
+}
+
+- (void)changeController {
+  UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  UINavigationController* nav = [storyboard instantiateViewControllerWithIdentifier:@"postNC"];
+  UIViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"postVC"];
+
+  [nav addChildViewController:vc];
+  [nav presentViewController:vc animated:NO completion:^{}];
+  /*[self performSegueWithIdentifier:@"postSegue"
+                            sender:self];*/
 }
 
 - (void)login:(NSString*)username password:(NSString*)password {
   NSString* strURL = [NSString stringWithFormat:@"%@%@", kAPI_BASE_URL, kAPI_LOGIN];
   NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:strURL]];
   [request setHTTPMethod:@"POST"];
-  NSString* postQuery = [NSString stringWithFormat:@"username=%@&password=%@&service=ios&device_name=%@", username, password, [[UIDevice currentDevice] name]];
+  NSString* postQuery = [NSString stringWithFormat:@"username=%@&password=%@&service=ios&device_name=%@&registration_id=%@", username, password, [[UIDevice currentDevice] name], @"test"];
   NSLog(@"Posting to %@", postQuery);
   NSData* postData = [postQuery dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-  NSString* postLength = [NSString stringWithFormat:@"%lu", [postData length]];
+  NSString* postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
 
   [request setValue:kAPI_KEY forHTTPHeaderField:@"key"];
   [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -50,7 +62,16 @@
      if (!error && [response isKindOfClass:[NSHTTPURLResponse class]] &&
          ((NSHTTPURLResponse *)response).statusCode == 200)
      {
-       NSLog(@"%@", data);
+       NSError* jsonError = NULL;
+       NSDictionary *arrayJson = [NSJSONSerialization JSONObjectWithData: data
+                                                                 options: NSJSONReadingMutableContainers error: &jsonError];
+
+       NSLog(@"%@", arrayJson);
+       self.sessionKey = [arrayJson valueForKey:@"session_key"];
+       NSLog(@"%@", self.sessionKey);
+       [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+         [self changeController];
+       }];
      }
      else
      {

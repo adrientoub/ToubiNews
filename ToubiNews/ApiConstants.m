@@ -14,7 +14,7 @@ NSString* const kAPI_TOPIC = @"/topic";
 NSString* const kAPI_LOGIN = @"/login";
 NSString* const kNG_HOST = @"news.epita.fr";
 
-NSString* const kAPI_KEY = @"";
+NSString* const kAPI_KEY = @"bmqMz14501dONBn4B63rz0mGFmtsr6o8";
 
 int const kRECENT_COUNT = 50;
 

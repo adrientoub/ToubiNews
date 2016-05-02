@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nkf-7C-crC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nkf-7C-crC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
@@ -160,13 +160,14 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVN-EN-0SG">
                                 <rect key="frame" x="10" y="305" width="580" height="30"/>
+                                <color key="tintColor" red="0.51372549020000002" green="0.90980392160000001" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginAction:" destination="14M-iL-Jco" eventType="touchUpInside" id="f55-Vx-tl6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbk-tn-PB7">
-                                <rect key="frame" x="10" y="113" width="580" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbk-tn-PB7">
+                                <rect key="frame" x="10" y="114" width="580" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="D0e-sQ-wqd"/>
                                 </constraints>
@@ -200,11 +201,13 @@
                         <outlet property="loginButton" destination="AVN-EN-0SG" id="NS1-Pw-GrZ"/>
                         <outlet property="loginTextField" destination="EUx-vb-vD6" id="BKd-2z-G8Q"/>
                         <outlet property="passwordTextField" destination="fcC-UM-83e" id="PCS-pd-rpz"/>
+                        <segue destination="W9z-TT-pA0" kind="show" identifier="postSegueaa" id="VXN-Tn-zMG"/>
+                        <segue destination="W9z-TT-pA0" kind="presentation" identifier="postSegue" id="ZNk-Wr-3PK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UyN-lB-49e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3215" y="1530"/>
+            <point key="canvasLocation" x="2059" y="1530"/>
         </scene>
         <!--NewsgroupsTVC-->
         <scene sceneID="uEC-MF-pb6">
@@ -343,7 +346,7 @@
         <!--PostVC-->
         <scene sceneID="GnP-Kj-XHP">
             <objects>
-                <viewController title="PostVC" id="W9z-TT-pA0" customClass="PostVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="postVC" title="PostVC" id="W9z-TT-pA0" customClass="PostVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N1n-aN-I83"/>
                         <viewControllerLayoutGuide type="bottom" id="xjO-hf-K63"/>
@@ -366,13 +369,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="dhR-Re-OxH"/>
-                    <connections>
-                        <segue destination="14M-iL-Jco" kind="show" identifier="loginSegue" id="Lv7-Jf-R3o"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdw-Bo-g9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2026" y="1530"/>
+            <point key="canvasLocation" x="3458" y="1530"/>
         </scene>
         <!--RecentNewsTVC-->
         <scene sceneID="3f5-gk-9sK">
@@ -429,7 +429,7 @@
         <!--PostNC-->
         <scene sceneID="YmG-YV-cYv">
             <objects>
-                <navigationController title="PostNC" automaticallyAdjustsScrollViewInsets="NO" id="lrx-FB-LQU" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="postNC" title="PostNC" automaticallyAdjustsScrollViewInsets="NO" id="lrx-FB-LQU" customClass="PostNC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Post" image="Add.png" id="I5N-Yh-8K9">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -448,7 +448,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="W9z-TT-pA0" kind="relationship" relationship="rootViewController" id="DQy-oh-1Qa"/>
+                        <segue destination="14M-iL-Jco" kind="relationship" relationship="rootViewController" id="dUO-b9-Nc4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnK-rp-LO1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -489,26 +489,14 @@
             </objects>
             <point key="canvasLocation" x="1200" y="2310"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="FOi-aD-9gt">
-            <objects>
-                <navigationController id="W0L-RC-UdH" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bIg-mA-CW4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Edg-rt-OdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="Add.png" width="25" height="25"/>
         <image name="News.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ZNk-Wr-3PK"/>
         <segue reference="ZVl-1E-pP9"/>
-        <segue reference="KlJ-Lr-wcy"/>
+        <segue reference="cE7-bH-BNv"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.51372549019607838" green="0.90980392156862744" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
