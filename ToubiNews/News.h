@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSString* subject;
 @property (nonatomic, strong) NSString* creation_date;
 @property (nonatomic, strong) NSString* newsgroup;
+@property (nonatomic, strong) NSString* content;
 
 @end

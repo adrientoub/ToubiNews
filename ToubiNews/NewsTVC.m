@@ -8,6 +8,7 @@
 
 #import "NewsTVC.h"
 #import "NewsDetailVC.h"
+#import "NewsDetailTVC.h"
 #import "News.h"
 #import "ApiConstants.h"
 
@@ -184,15 +185,16 @@
   // Get the new view controller using [segue destinationViewController].
   // Pass the selected object to the new view
 
-  NewsDetailVC* detail = [segue destinationViewController];
   NSIndexPath* index;
   if (self.searchDisplayController.active == YES)
   {
+    NewsDetailVC* detail = [segue destinationViewController];
     index = [self.searchDisplayController.searchResultsTableView indexPathForCell:sender];
     [detail setNews:[self.searchArray objectAtIndex: index.row]];
   }
   else
   {
+    NewsDetailTVC* detail = [segue destinationViewController];
     index = [self.tableView indexPathForCell:sender];
     [detail setNews:[self.newsArray objectAtIndex: index.row]];
   }

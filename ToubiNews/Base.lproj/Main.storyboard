@@ -52,9 +52,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="newsDetailSegue" id="KlJ-Lr-wcy">
-                                        <segue key="commit" inheritsFrom="parent" id="usu-6P-DAj"/>
-                                        <segue key="preview" inheritsFrom="commit" id="igI-da-CwR"/>
+                                    <segue destination="Gep-Ot-KNQ" kind="show" identifier="newsDetailSegue" id="MLn-fQ-38N">
+                                        <segue key="commit" inheritsFrom="parent" id="XUp-aV-ngf"/>
+                                        <segue key="preview" inheritsFrom="commit" id="C4z-5o-b2X"/>
                                     </segue>
                                 </connections>
                             </tableViewCell>
@@ -82,6 +82,34 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2732" y="653"/>
+        </scene>
+        <!--News DetailTVC-->
+        <scene sceneID="8kp-xD-Xjj">
+            <objects>
+                <tableViewController id="Gep-Ot-KNQ" customClass="NewsDetailTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aww-jK-Eeb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsDetailCell" id="UcR-M5-zYB">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UcR-M5-zYB" id="q0i-0G-SLd">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Gep-Ot-KNQ" id="HzJ-fT-JKX"/>
+                            <outlet property="delegate" destination="Gep-Ot-KNQ" id="3sF-xR-HoN"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9en-da-Dfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3442" y="-66"/>
         </scene>
         <!--NewsDetailVC-->
         <scene sceneID="ufC-wZ-h7g">
@@ -497,6 +525,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="ZNk-Wr-3PK"/>
         <segue reference="ZVl-1E-pP9"/>
-        <segue reference="cE7-bH-BNv"/>
+        <segue reference="16F-jM-5oD"/>
+        <segue reference="MLn-fQ-38N"/>
     </inferredMetricsTieBreakers>
 </document>

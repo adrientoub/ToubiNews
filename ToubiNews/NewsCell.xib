@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsDetailCell" rowHeight="320" id="gsm-91-6Yh" customClass="NewsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gsm-91-6Yh" id="jsH-bT-6K3">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nki-nO-vEg">
+                        <rect key="frame" x="8" y="8" width="304" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKd-8i-bFc">
+                        <rect key="frame" x="8" y="37" width="304" height="20"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" link="YES" staticText="YES"/>
+                        </accessibility>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7k-m8-1mI">
+                        <rect key="frame" x="8" y="293" width="304" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Newsgroup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFy-lN-jgi">
+                        <rect key="frame" x="8" y="267" width="304" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Content" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4ck-WH-HCh">
+                        <rect key="frame" x="8" y="65" width="304" height="194"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <dataDetectorType key="dataDetectorTypes" link="YES" address="YES" calendarEvent="YES"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="4ck-WH-HCh" secondAttribute="trailing" constant="8" id="0kL-6R-M66"/>
+                    <constraint firstAttribute="trailing" secondItem="fFy-lN-jgi" secondAttribute="trailing" constant="8" id="4GW-An-JDB"/>
+                    <constraint firstItem="bKd-8i-bFc" firstAttribute="top" secondItem="nki-nO-vEg" secondAttribute="bottom" constant="8" id="6PE-S0-cWN"/>
+                    <constraint firstAttribute="bottom" secondItem="y7k-m8-1mI" secondAttribute="bottom" constant="8" id="FoY-4z-uwY"/>
+                    <constraint firstAttribute="trailing" secondItem="nki-nO-vEg" secondAttribute="trailing" constant="8" id="G9T-OC-ND1"/>
+                    <constraint firstItem="fFy-lN-jgi" firstAttribute="top" secondItem="4ck-WH-HCh" secondAttribute="bottom" constant="8" id="YVK-Va-De5"/>
+                    <constraint firstAttribute="trailing" secondItem="bKd-8i-bFc" secondAttribute="trailing" constant="8" id="Zr6-Af-HaA"/>
+                    <constraint firstItem="bKd-8i-bFc" firstAttribute="leading" secondItem="jsH-bT-6K3" secondAttribute="leading" constant="8" id="bNs-Qk-rfh"/>
+                    <constraint firstItem="4ck-WH-HCh" firstAttribute="top" secondItem="bKd-8i-bFc" secondAttribute="bottom" constant="8" id="btF-Xy-Rty"/>
+                    <constraint firstAttribute="trailing" secondItem="y7k-m8-1mI" secondAttribute="trailing" constant="8" id="f7v-hS-uqf"/>
+                    <constraint firstItem="y7k-m8-1mI" firstAttribute="leading" secondItem="jsH-bT-6K3" secondAttribute="leading" constant="8" id="fuE-a3-pok"/>
+                    <constraint firstItem="nki-nO-vEg" firstAttribute="top" secondItem="jsH-bT-6K3" secondAttribute="top" constant="8" id="hdF-Gm-sPG"/>
+                    <constraint firstItem="nki-nO-vEg" firstAttribute="leading" secondItem="jsH-bT-6K3" secondAttribute="leading" constant="8" id="oHj-Hl-ZTZ"/>
+                    <constraint firstItem="y7k-m8-1mI" firstAttribute="top" secondItem="fFy-lN-jgi" secondAttribute="bottom" constant="8" id="u4c-rC-WWz"/>
+                    <constraint firstItem="4ck-WH-HCh" firstAttribute="leading" secondItem="jsH-bT-6K3" secondAttribute="leading" constant="8" id="xYH-bF-JTF"/>
+                    <constraint firstItem="fFy-lN-jgi" firstAttribute="leading" secondItem="jsH-bT-6K3" secondAttribute="leading" constant="8" id="yUe-RD-3lN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="authorLabel" destination="bKd-8i-bFc" id="n6a-1F-gpb"/>
+                <outlet property="contentTextView" destination="4ck-WH-HCh" id="SLr-9V-Hbi"/>
+                <outlet property="dateLabel" destination="y7k-m8-1mI" id="uNp-NS-wYk"/>
+                <outlet property="newsgroupLabel" destination="fFy-lN-jgi" id="9vN-Xj-y4g"/>
+                <outlet property="titleLabel" destination="nki-nO-vEg" id="KxB-7g-bVz"/>
+            </connections>
+            <point key="canvasLocation" x="686" y="463"/>
+        </tableViewCell>
+    </objects>
+</document>
