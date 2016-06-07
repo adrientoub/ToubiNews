@@ -29,6 +29,9 @@
                                               bundle: [NSBundle mainBundle]]
               forCellReuseIdentifier: @"newsDetailCell"];
 
+  self.tableView.rowHeight = UITableViewAutomaticDimension;
+  self.tableView.estimatedRowHeight = 200.0;
+
   [self.newsList addObject: self.news];
   [self getNewsDetails];
 }
@@ -44,16 +47,11 @@
   NSString* text = news.content;
   if (text == nil)
     text = @"";
-  [cell.contentTextView setText: news.content];
+  [cell.contentTextView setText: [text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]]];
   [cell.dateLabel setText: news.creation_date];
   [cell.newsgroupLabel setText: news.newsgroup];
 
   return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  return 400;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
