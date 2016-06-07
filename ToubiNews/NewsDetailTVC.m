@@ -12,7 +12,7 @@
 
 @implementation NewsDetailTVC
 //
-//  GameDetailVC.m
+//  NewsDetailTVC.m
 //  ToubiNews
 //
 //  Created by Adrien Toubiana on 08/06/15.
@@ -36,6 +36,21 @@
   [self getNewsDetails];
 }
 
++ (NSDate *)parseDate:(NSString *)dateString
+{
+  NSDateFormatter *timestampFormater = [[NSDateFormatter alloc] init];
+  [timestampFormater setLocale: [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
+  [timestampFormater setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
+
+  NSDate *theDate = nil;
+  NSError *error = nil;
+  if (![timestampFormater getObjectValue:&theDate forString:dateString range:nil error:&error]) {
+    NSLog(@"Date '%@' could not be parsed: %@", dateString, error);
+  }
+
+  return theDate;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   NewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsDetailCell"
@@ -48,7 +63,11 @@
   if (text == nil)
     text = @"";
   [cell.contentTextView setText: [text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-  [cell.dateLabel setText: news.creation_date];
+  NSDate* date = [NewsDetailTVC parseDate: news.creation_date];
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  formatter.dateStyle = NSDateFormatterFullStyle;
+  formatter.timeStyle = NSDateFormatterMediumStyle;
+  [cell.dateLabel setText: [formatter stringFromDate: date]];
   [cell.newsgroupLabel setText: news.newsgroup];
 
   return cell;
