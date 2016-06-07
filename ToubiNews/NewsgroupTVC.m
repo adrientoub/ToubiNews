@@ -10,7 +10,7 @@
 #import "Newsgroup.h"
 #import "NewsTVC.h"
 #import "News.h"
-#import "NewsDetailVC.h"
+#import "NewsDetailTVC.h"
 #import "ApiConstants.h"
 
 @interface NewsgroupTVC ()
@@ -310,7 +310,7 @@
   // Pass the selected object to the new view controller.
   if (self.searchDisplayController.active)
   {
-    NewsDetailVC* detail = [segue destinationViewController];
+    NewsDetailTVC* detail = [segue destinationViewController];
     NSIndexPath* index = [self.searchDisplayController.searchResultsTableView indexPathForCell:sender];
     [detail setNews:[self.searchArray objectAtIndex: index.row]];
   }

@@ -109,42 +109,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9en-da-Dfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3442" y="-66"/>
-        </scene>
-        <!--NewsDetailVC-->
-        <scene sceneID="ufC-wZ-h7g">
-            <objects>
-                <viewController title="NewsDetailVC" id="vXZ-lx-hvc" customClass="NewsDetailVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDt-hE-WaY">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" calendarEvent="YES"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="DDt-hE-WaY" secondAttribute="bottom" id="2nJ-ec-Mug"/>
-                            <constraint firstAttribute="trailing" secondItem="DDt-hE-WaY" secondAttribute="trailing" id="3u5-sF-fyf"/>
-                            <constraint firstItem="DDt-hE-WaY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="7u9-xH-KCS"/>
-                            <constraint firstItem="DDt-hE-WaY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="hg0-No-Eem"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="News" id="8O3-yG-u6q"/>
-                    <connections>
-                        <outlet property="newsContent" destination="DDt-hE-WaY" id="bHb-Nj-KA6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3442" y="653"/>
+            <point key="canvasLocation" x="3458" y="653"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="Bc5-7E-uge">
@@ -299,7 +264,7 @@
                     <connections>
                         <outlet property="searchBar" destination="dgl-7r-BHD" id="Qhu-xZ-aTA"/>
                         <outlet property="searchDisplayController" destination="WBE-JX-DpN" id="GDw-O0-ehi"/>
-                        <segue destination="vXZ-lx-hvc" kind="show" identifier="accessNewsDetail" id="16F-jM-5oD"/>
+                        <segue destination="Gep-Ot-KNQ" kind="show" identifier="accessNewsDetail" id="sCN-eQ-N4T"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UoT-HL-KaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -435,10 +400,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="recentNewsDetailSegue" id="cE7-bH-BNv">
-                                        <segue key="commit" inheritsFrom="parent" id="0j6-Gf-3wc"/>
-                                        <segue key="preview" inheritsFrom="commit" id="bFh-FX-a0h"/>
-                                    </segue>
+                                    <segue destination="Gep-Ot-KNQ" kind="show" identifier="recentNewsDetailSegue" id="USB-c6-Lso"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -524,8 +486,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZNk-Wr-3PK"/>
+        <segue reference="sCN-eQ-N4T"/>
         <segue reference="ZVl-1E-pP9"/>
-        <segue reference="16F-jM-5oD"/>
-        <segue reference="MLn-fQ-38N"/>
     </inferredMetricsTieBreakers>
 </document>

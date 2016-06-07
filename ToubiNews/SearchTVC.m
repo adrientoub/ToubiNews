@@ -8,7 +8,7 @@
 
 #import "SearchTVC.h"
 #import "News.h"
-#import "NewsDetailVC.h"
+#import "NewsDetailTVC.h"
 #import "ApiConstants.h"
 
 @interface SearchTVC ()
@@ -110,7 +110,7 @@
 {
   // Get the new view controller using [segue destinationViewController].
   // Pass the selected object to the new view controller.
-  NewsDetailVC* detail = [segue destinationViewController];
+  NewsDetailTVC* detail = [segue destinationViewController];
   NSIndexPath* index;
   if (self.searchDisplayController.active == YES)
     index = [self.searchDisplayController.searchResultsTableView indexPathForCell:sender];
@@ -182,6 +182,9 @@
     newsTmp.uid = [newsDico objectForKey:@"uid"];
     newsTmp.subject = [newsDico objectForKey:@"subject"];
     newsTmp.author = [newsDico objectForKey:@"author"];
+    newsTmp.creation_date = [newsDico objectForKey:@"creation_date"];
+    newsTmp.newsgroup = [newsDico objectForKey:@"groups"][0];
+
 
     //end of parsing
     [self.newsArray addObject:newsTmp];

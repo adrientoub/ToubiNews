@@ -7,7 +7,7 @@
 //
 
 #import "RecentNewsTVC.h"
-#import "NewsDetailVC.h"
+#import "NewsDetailTVC.h"
 #import "News.h"
 #import "ApiConstants.h"
 
@@ -125,7 +125,7 @@
   // Get the new view controller using [segue destinationViewController].
   // Pass the selected object to the new view
 
-  NewsDetailVC* detail = [segue destinationViewController];
+  NewsDetailTVC* detail = [segue destinationViewController];
   NSIndexPath* index = [self.tableView indexPathForCell:sender];
   [detail setNews:[self.newsArray objectAtIndex: index.row]];
 }

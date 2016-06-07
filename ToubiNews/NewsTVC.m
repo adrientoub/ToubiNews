@@ -7,7 +7,7 @@
 //
 
 #import "NewsTVC.h"
-#import "NewsDetailVC.h"
+#import "NewsDetailTVC.h"
 #import "NewsDetailTVC.h"
 #import "News.h"
 #import "ApiConstants.h"
@@ -188,7 +188,7 @@
   NSIndexPath* index;
   if (self.searchDisplayController.active == YES)
   {
-    NewsDetailVC* detail = [segue destinationViewController];
+    NewsDetailTVC* detail = [segue destinationViewController];
     index = [self.searchDisplayController.searchResultsTableView indexPathForCell:sender];
     [detail setNews:[self.searchArray objectAtIndex: index.row]];
   }

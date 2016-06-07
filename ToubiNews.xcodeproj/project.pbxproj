@@ -31,7 +31,6 @@
 		ACB250F31B25A49000998A65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB250F11B25A49000998A65 /* LaunchScreen.xib */; };
 		ACB250FF1B25A49000998A65 /* ToubiNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB250FE1B25A49000998A65 /* ToubiNewsTests.m */; };
 		ACB2510E1B25A56100998A65 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB251091B25A56100998A65 /* News.m */; };
-		ACB2510F1B25A56100998A65 /* NewsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB2510B1B25A56100998A65 /* NewsDetailVC.m */; };
 		ACB251101B25A56100998A65 /* NewsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB2510D1B25A56100998A65 /* NewsTVC.m */; };
 /* End PBXBuildFile section */
 
@@ -87,8 +86,6 @@
 		ACB250FE1B25A49000998A65 /* ToubiNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToubiNewsTests.m; sourceTree = "<group>"; };
 		ACB251081B25A56100998A65 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		ACB251091B25A56100998A65 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
-		ACB2510A1B25A56100998A65 /* NewsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailVC.h; sourceTree = "<group>"; };
-		ACB2510B1B25A56100998A65 /* NewsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailVC.m; sourceTree = "<group>"; };
 		ACB2510C1B25A56100998A65 /* NewsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTVC.h; sourceTree = "<group>"; };
 		ACB2510D1B25A56100998A65 /* NewsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,8 +147,6 @@
 				7A62622B1CD81A8A00B047CF /* NewsCell.xib */,
 				7A6262281CD8146200B047CF /* NewsDetailTVC.h */,
 				7A6262291CD8146200B047CF /* NewsDetailTVC.m */,
-				ACB2510A1B25A56100998A65 /* NewsDetailVC.h */,
-				ACB2510B1B25A56100998A65 /* NewsDetailVC.m */,
 				7AC72C9C1B25E8E300BF7B18 /* Newsgroup.h */,
 				7AC72C9D1B25E8E300BF7B18 /* Newsgroup.m */,
 				7A6AA4551B2CA97400F7073D /* NewsgroupCell.xib */,
@@ -252,7 +247,7 @@
 				TargetAttributes = {
 					ACB250DE1B25A49000998A65 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 82WGKZNRPJ;
+						DevelopmentTeam = L98HNLMV93;
 					};
 					ACB250F71B25A49000998A65 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -321,7 +316,6 @@
 				7A7792C31C88E782009C3379 /* ApiConstants.m in Sources */,
 				7A205C221C90FA0700A6BB34 /* PostVC.m in Sources */,
 				ACB2510E1B25A56100998A65 /* News.m in Sources */,
-				ACB2510F1B25A56100998A65 /* NewsDetailVC.m in Sources */,
 				7AC72C9B1B25E87200BF7B18 /* NewsgroupTVC.m in Sources */,
 				ACB251101B25A56100998A65 /* NewsTVC.m in Sources */,
 				7A62622F1CD81AED00B047CF /* NewsTableViewCell.m in Sources */,
@@ -453,7 +447,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ToubiNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.toubiana.ToubiNews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toub.ToubiNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -469,7 +463,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ToubiNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.toubiana.ToubiNews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toub.ToubiNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
