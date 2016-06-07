@@ -34,12 +34,12 @@
   NSLog(@"%@", shortcutItem);
   UITabBarController* tabbar = (UITabBarController*)self.window.rootViewController;
 
-  if ([shortcutItem.type isEqualToString:@"com.toubiana.ToubiNews"])
-    tabbar.selectedViewController = tabbar.viewControllers[0];
-  else if ([shortcutItem.type isEqualToString:@"com.toubiana.ToubiNews.Recent"])
+  if ([shortcutItem.type containsString:@"Post"])
+    tabbar.selectedViewController = tabbar.viewControllers[2];
+  else if ([shortcutItem.type containsString:@"Recent"])
     tabbar.selectedViewController = tabbar.viewControllers[1];
   else
-    tabbar.selectedViewController = tabbar.viewControllers[2];
+    tabbar.selectedViewController = tabbar.viewControllers[0];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
