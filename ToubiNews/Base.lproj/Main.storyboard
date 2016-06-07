@@ -400,7 +400,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Gep-Ot-KNQ" kind="show" identifier="recentNewsDetailSegue" id="USB-c6-Lso"/>
+                                    <segue destination="Gep-Ot-KNQ" kind="show" identifier="recentNewsDetailSegue" id="USB-c6-Lso">
+                                        <segue key="commit" inheritsFrom="parent" id="SEM-fR-uzm"/>
+                                        <segue key="preview" inheritsFrom="commit" id="XZG-sZ-koI"/>
+                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -486,7 +489,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZNk-Wr-3PK"/>
-        <segue reference="sCN-eQ-N4T"/>
         <segue reference="ZVl-1E-pP9"/>
+        <segue reference="USB-c6-Lso"/>
     </inferredMetricsTieBreakers>
 </document>
