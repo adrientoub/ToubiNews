@@ -1,5 +1,7 @@
 # ToubiNews
 
+[![Build Status](https://travis-ci.com/adrientoub/ToubiNews.svg?token=4mH1dqcjxXqBp6vRxhqg&branch=master)](https://travis-ci.com/adrientoub/ToubiNews)
+
 ## Description
 
 This application is an app to read nntp news on your iPhone.
