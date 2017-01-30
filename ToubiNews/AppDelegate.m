@@ -34,9 +34,7 @@
   NSLog(@"%@", shortcutItem);
   UITabBarController* tabbar = (UITabBarController*)self.window.rootViewController;
 
-  if ([shortcutItem.type containsString:@"Post"])
-    tabbar.selectedViewController = tabbar.viewControllers[2];
-  else if ([shortcutItem.type containsString:@"Recent"])
+  if ([shortcutItem.type containsString:@"Recent"])
     tabbar.selectedViewController = tabbar.viewControllers[1];
   else
     tabbar.selectedViewController = tabbar.viewControllers[0];

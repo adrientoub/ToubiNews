@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7A205C221C90FA0700A6BB34 /* PostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A205C211C90FA0700A6BB34 /* PostVC.m */; };
-		7A205C251C90FE1000A6BB34 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A205C241C90FE1000A6BB34 /* LoginVC.m */; };
 		7A2106FA1C923DBC0067B312 /* PostNC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2106F91C923DBC0067B312 /* PostNC.m */; };
 		7A62622A1CD8146200B047CF /* NewsDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6262291CD8146200B047CF /* NewsDetailTVC.m */; };
 		7A62622C1CD81A8A00B047CF /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A62622B1CD81A8A00B047CF /* NewsCell.xib */; };
@@ -47,8 +46,6 @@
 /* Begin PBXFileReference section */
 		7A205C201C90FA0700A6BB34 /* PostVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostVC.h; sourceTree = "<group>"; };
 		7A205C211C90FA0700A6BB34 /* PostVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostVC.m; sourceTree = "<group>"; };
-		7A205C231C90FE1000A6BB34 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
-		7A205C241C90FE1000A6BB34 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		7A2106F81C923DBC0067B312 /* PostNC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostNC.h; sourceTree = "<group>"; };
 		7A2106F91C923DBC0067B312 /* PostNC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostNC.m; sourceTree = "<group>"; };
 		7A6262281CD8146200B047CF /* NewsDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailTVC.h; sourceTree = "<group>"; };
@@ -138,8 +135,6 @@
 				7AE052301B287C3400E4AD73 /* Cell.xib */,
 				ACB250EF1B25A49000998A65 /* Images.xcassets */,
 				ACB250F11B25A49000998A65 /* LaunchScreen.xib */,
-				7A205C231C90FE1000A6BB34 /* LoginVC.h */,
-				7A205C241C90FE1000A6BB34 /* LoginVC.m */,
 				ACB250EC1B25A49000998A65 /* Main.storyboard */,
 				ACB251081B25A56100998A65 /* News.h */,
 				ACB251091B25A56100998A65 /* News.m */,
@@ -242,7 +237,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Toub;
 				TargetAttributes = {
 					ACB250DE1B25A49000998A65 = {
@@ -307,7 +302,6 @@
 			files = (
 				7AC72C9E1B25E8E300BF7B18 /* Newsgroup.m in Sources */,
 				7A62622A1CD8146200B047CF /* NewsDetailTVC.m in Sources */,
-				7A205C251C90FE1000A6BB34 /* LoginVC.m in Sources */,
 				7A2106FA1C923DBC0067B312 /* PostNC.m in Sources */,
 				ACB250EB1B25A49000998A65 /* ViewController.m in Sources */,
 				ACB250E81B25A49000998A65 /* AppDelegate.m in Sources */,
@@ -374,8 +368,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -384,6 +380,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -416,8 +413,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -425,6 +424,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -445,6 +445,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = L98HNLMV93;
 				INFOPLIST_FILE = ToubiNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toub.ToubiNews;
@@ -461,6 +462,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = L98HNLMV93;
 				INFOPLIST_FILE = ToubiNews/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toub.ToubiNews;
